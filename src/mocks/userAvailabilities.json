@@ -1,0 +1,22 @@
+{
+	"Availabilities": [
+		{
+	        "Id": 0,
+	        "Date": "2015-09-08",
+			"Hours": "18:00",
+			"Mode": "unavailable"
+		},
+		{
+	        "Id": 1,
+	        "Date": "2015-09-08",
+			"Hours": "18:30",
+			"Mode": "available"
+		},
+		{
+	        "Id": 2,
+	        "Date": "2015-09-08",
+			"Hours": "19:00",
+			"Mode": "perhaps"
+		}	
+	]
+}	

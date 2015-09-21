@@ -1,0 +1,50 @@
+[
+    {
+        "request": {
+            "url": "api/Events/1",
+            "method": "GET"
+        },
+        "response": {
+            "status": 200,
+            "latency": 250,
+            "headers": {
+	            "Content-Type": "application/json"
+	        },
+            "file": "src/mocks/userEvents.json"
+        }
+    },
+    {
+        "request": {
+            "url": "api/Events",
+            "method": "GET"
+        },
+        "response": {
+            "status": 200,
+            "latency": 250,
+            "headers": {
+	            "Content-Type": "application/json"
+	        },
+            "file": "src/mocks/events.json"
+        }
+    },   
+	{
+        "request": {
+            "url": "api/Events",
+            "method": "POST"
+        },
+        "response": {
+            "status": 201,
+            "latency": 250
+        }
+    },
+    {
+        "request": {
+            "url": "api/Events",
+            "method": "PUT"
+        },
+        "response": {
+            "status": 200,
+            "latency": 250
+        }
+    }
+]

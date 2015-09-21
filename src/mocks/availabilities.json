@@ -1,0 +1,520 @@
+{
+	"Availabilities": [
+		{
+	        "Id": 0,
+	        "Date": "2015-09-18",
+			"Hours": "18:00",
+			"Mode": "available",
+			"User" : 
+			{
+				"Id": 1,
+				"Name": "John",
+				"FirstName": "Doe",
+				"Email": "john.doe@axa.fr"
+			}
+		},
+		{
+	        "Id": 2,
+	        "Date": "2015-09-18",
+			"Hours": "18:00",
+			"Mode": "available",
+			"User" : 
+			{
+				"Id": 2,
+				"Name": "John",
+				"FirstName": "Doe",
+				"Email": "john.doe@axa.fr"
+			}
+		},
+		{
+	        "Id": 3,
+	        "Date": "2015-09-18",
+			"Hours": "18:00",
+			"Mode": "available",
+			"User" : 
+			{
+				"Id": 3,
+				"Name": "John",
+				"FirstName": "Doe",
+				"Email": "john.doe@axa.fr"
+			}
+		},	
+		{
+	        "Id": 4,
+	        "Date": "2015-09-18",
+			"Hours": "18:00",
+			"Mode": "available",
+			"User" : 
+			{
+				"Id": 4,
+				"Name": "John",
+				"FirstName": "Doe",
+				"Email": "john.doe@axa.fr"
+			}
+		},
+		{
+	        "Id": 5,
+	        "Date": "2015-09-18",
+			"Hours": "18:00",
+			"Mode": "available",
+			"User" : 
+			{
+				"Id": 5,
+				"Name": "John",
+				"FirstName": "Doe",
+				"Email": "john.doe@axa.fr"
+			}
+		},
+		{
+	        "Id": 6,
+	        "Date": "2015-09-18",
+			"Hours": "18:00",
+			"Mode": "available",
+			"User" : 
+			{
+				"Id": 6,
+				"Name": "John",
+				"FirstName": "Doe",
+				"Email": "john.doe@axa.fr"
+			}
+		},
+		{
+	        "Id": 7,
+	        "Date": "2015-09-18",
+			"Hours": "18:00",
+			"Mode": "available",
+			"User" : 
+			{
+				"Id": 7,
+				"Name": "John",
+				"FirstName": "Doe",
+				"Email": "john.doe@axa.fr"
+			}
+		},
+		{
+	        "Id": 8,
+	        "Date": "2015-09-18",
+			"Hours": "18:00",
+			"Mode": "available",
+			"User" : 
+			{
+				"Id": 8,
+				"Name": "John",
+				"FirstName": "Doe",
+				"Email": "john.doe@axa.fr"
+			}
+		},
+		{
+	        "Id": 9,
+	        "Date": "2015-09-18",
+			"Hours": "18:00",
+			"Mode": "available",
+			"User" : 
+			{
+				"Id": 9,
+				"Name": "John",
+				"FirstName": "Doe",
+				"Email": "john.doe@axa.fr"
+			}
+		},
+		
+		
+		
+		
+
+		{
+	        "Id": 10,
+	        "Date": "2015-09-18",
+			"Hours": "18:30",
+			"Mode": "available",
+			"User" : 
+			{
+				"Id": 1,
+				"Name": "John",
+				"FirstName": "Doe",
+				"Email": "john.doe@axa.fr"
+			}
+		},
+		{
+	        "Id": 11,
+	        "Date": "2015-09-18",
+			"Hours": "18:30",
+			"Mode": "available",
+			"User" : 
+			{
+				"Id": 2,
+				"Name": "John",
+				"FirstName": "Doe",
+				"Email": "john.doe@axa.fr"
+			}
+		},
+		{
+	        "Id": 12,
+	        "Date": "2015-09-18",
+			"Hours": "18:30",
+			"Mode": "available",
+			"User" : 
+			{
+				"Id": 3,
+				"Name": "John",
+				"FirstName": "Doe",
+				"Email": "john.doe@axa.fr"
+			}
+		},
+		
+		
+		
+		
+		
+		
+	{
+	        "Id": 13,
+	        "Date": "2015-09-23",
+			"Hours": "19:00",
+			"Mode": "available",
+			"User" : 
+			{
+				"Id": 1,
+				"Name": "John",
+				"FirstName": "Doe",
+				"Email": "john.doe@axa.fr"
+			}
+		},
+		{
+	        "Id": 14,
+	        "Date": "2015-09-23",
+			"Hours": "19:00",
+			"Mode": "available",
+			"User" : 
+			{
+				"Id": 2,
+				"Name": "James",
+				"FirstName": "Bond",
+				"Email": "john.doe@axa.fr"
+			}
+		},
+		{
+	        "Id": 15,
+	        "Date": "2015-09-23",
+			"Hours": "19:00",
+			"Mode": "available",
+			"User" : 
+			{
+				"Id": 3,
+				"Name": "John",
+				"FirstName": "Doe",
+				"Email": "john.doe@axa.fr"
+			}
+		},{
+	        "Id": 16,
+	        "Date": "2015-09-23",
+			"Hours": "19:00",
+			"Mode": "available",
+			"User" : 
+			{
+				"Id": 4,
+				"Name": "John",
+				"FirstName": "Doe",
+				"Email": "john.doe@axa.fr"
+			}
+		},
+		{
+	        "Id": 17,
+	        "Date": "2015-09-23",
+			"Hours": "19:00",
+			"Mode": "available",
+			"User" : 
+			{
+				"Id": 5,
+				"Name": "John",
+				"FirstName": "Doe",
+				"Email": "john.doe@axa.fr"
+			}
+		},
+		{
+	        "Id": 18,
+	        "Date": "2015-09-23",
+			"Hours": "19:00",
+			"Mode": "available",
+			"User" : 
+			{
+				"Id": 6,
+				"Name": "John",
+				"FirstName": "Doe",
+				"Email": "john.doe@axa.fr"
+			}
+		},
+		{
+	        "Id": 19,
+	        "Date": "2015-09-23",
+			"Hours": "19:00",
+			"Mode": "available",
+			"User" : 
+			{
+				"Id": 7,
+				"Name": "John",
+				"FirstName": "Doe",
+				"Email": "john.doe@axa.fr"
+			}
+		},
+		{
+	        "Id": 20,
+	        "Date": "2015-09-23",
+			"Hours": "19:00",
+			"Mode": "available",
+			"User" : 
+			{
+				"Id": 8,
+				"Name": "John",
+				"FirstName": "Doe",
+				"Email": "john.doe@axa.fr"
+			}
+		},
+		{
+	        "Id": 21,
+	        "Date": "2015-09-23",
+			"Hours": "19:00",
+			"Mode": "available",
+			"User" : 
+			{
+				"Id": 9,
+				"Name": "John",
+				"FirstName": "Doe",
+				"Email": "john.doe@axa.fr"
+			}
+		},
+		{
+	        "Id": 22,
+	        "Date": "2015-09-23",
+			"Hours": "19:00",
+			"Mode": "available",
+			"User" : 
+			{
+				"Id": 10,
+				"Name": "John",
+				"FirstName": "Doe",
+				"Email": "john.doe@axa.fr"
+			}
+		},
+		{
+	        "Id": 23,
+	        "Date": "2015-09-23",
+			"Hours": "19:00",
+			"Mode": "available",
+			"User" : 
+			{
+				"Id": 11,
+				"Name": "John",
+				"FirstName": "Doe",
+				"Email": "john.doe@axa.fr"
+			}
+		},
+		{
+	        "Id": 24,
+	        "Date": "2015-09-23",
+			"Hours": "19:00",
+			"Mode": "available",
+			"User" : 
+			{
+				"Id": 12,
+				"Name": "John",
+				"FirstName": "Doe",
+				"Email": "john.doe@axa.fr"
+			}
+		},{
+	        "Id": 25,
+	        "Date": "2015-09-23",
+			"Hours": "19:00",
+			"Mode": "available",
+			"User" : 
+			{
+				"Id": 13,
+				"Name": "John",
+				"FirstName": "Doe",
+				"Email": "john.doe@axa.fr"
+			}
+		},
+		{
+	        "Id": 26,
+	        "Date": "2015-09-23",
+			"Hours": "19:00",
+			"Mode": "available",
+			"User" : 
+			{
+				"Id": 14,
+				"Name": "John",
+				"FirstName": "Doe",
+				"Email": "john.doe@axa.fr"
+			}
+		},
+		{
+	        "Id": 27,
+	        "Date": "2015-09-23",
+			"Hours": "19:00",
+			"Mode": "available",
+			"User" : 
+			{
+				"Id": 15,
+				"Name": "John",
+				"FirstName": "Doe",
+				"Email": "john.doe@axa.fr"
+			}
+		},
+		{
+	        "Id": 28,
+	        "Date": "2015-09-23",
+			"Hours": "19:00",
+			"Mode": "available",
+			"User" : 
+			{
+				"Id": 16,
+				"Name": "John",
+				"FirstName": "Doe",
+				"Email": "john.doe@axa.fr"
+			}
+		},
+		{
+	        "Id": 29,
+	        "Date": "2015-09-23",
+			"Hours": "19:00",
+			"Mode": "available",
+			"User" : 
+			{
+				"Id": 17,
+				"Name": "John",
+				"FirstName": "Doe",
+				"Email": "john.doe@axa.fr"
+			}
+		},
+		{
+	        "Id": 30,
+	        "Date": "2015-09-23",
+			"Hours": "19:00",
+			"Mode": "available",
+			"User" : 
+			{
+				"Id": 18,
+				"Name": "John",
+				"FirstName": "Doe",
+				"Email": "john.doe@axa.fr"
+			}
+		},
+		{
+	        "Id": 31,
+	        "Date": "2015-09-23",
+			"Hours": "19:00",
+			"Mode": "available",
+			"User" : 
+			{
+				"Id": 19,
+				"Name": "John",
+				"FirstName": "Doe",
+				"Email": "john.doe@axa.fr"
+			}
+		},
+		{
+	        "Id": 32,
+	        "Date": "2015-09-23",
+			"Hours": "19:00",
+			"Mode": "available",
+			"User" : 
+			{
+				"Id": 20,
+				"Name": "John",
+				"FirstName": "Doe",
+				"Email": "john.doe@axa.fr"
+			}
+		},
+		{
+	        "Id": 33,
+	        "Date": "2015-09-23",
+			"Hours": "19:00",
+			"Mode": "perhaps",
+			"User" : 
+			{
+				"Id": 21,
+				"Name": "John",
+				"FirstName": "Doe",
+				"Email": "john.doe@axa.fr"
+			}
+		},
+		{
+	        "Id": 34,
+	        "Date": "2015-09-23",
+			"Hours": "19:00",
+			"Mode": "perhaps",
+			"User" : 
+			{
+				"Id": 22,
+				"Name": "John",
+				"FirstName": "Doe",
+				"Email": "john.doe@axa.fr"
+			}
+		},
+		{
+	        "Id": 35,
+	        "Date": "2015-09-23",
+			"Hours": "19:00",
+			"Mode": "perhaps",
+			"User" : 
+			{
+				"Id": 23,
+				"Name": "John",
+				"FirstName": "Doe",
+				"Email": "john.doe@axa.fr"
+			}
+		},
+		{
+	        "Id": 36,
+	        "Date": "2015-09-23",
+			"Hours": "19:00",
+			"Mode": "unavailable",
+			"User" : 
+			{
+				"Id": 24,
+				"Name": "John",
+				"FirstName": "Doe",
+				"Email": "john.doe@axa.fr"
+			}
+		},
+		{
+	        "Id": 37,
+	        "Date": "2015-09-23",
+			"Hours": "19:00",
+			"Mode": "unavailable",
+			"User" : 
+			{
+				"Id": 25,
+				"Name": "John",
+				"FirstName": "Doe",
+				"Email": "john.doe@axa.fr"
+			}
+		},
+		{
+	        "Id": 38,
+	        "Date": "2015-09-23",
+			"Hours": "19:00",
+			"Mode": "unknown",
+			"User" : 
+			{
+				"Id": 26,
+				"Name": "John",
+				"FirstName": "Doe",
+				"Email": "john.doe@axa.fr"
+			}
+		},
+		{
+	        "Id": 32,
+	        "Date": "2015-09-23",
+			"Hours": "19:00",
+			"Mode": "unknown",
+			"User" : 
+			{
+				"Id": 20,
+				"Name": "John",
+				"FirstName": "Doe",
+				"Email": "john.doe@axa.fr"
+			}
+		}
+	]
+}	

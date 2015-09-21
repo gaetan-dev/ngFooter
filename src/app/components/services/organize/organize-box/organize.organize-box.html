@@ -1,0 +1,126 @@
+<div class="container" >	
+	<div class="container bg-light-gray organize-box-content col-sm-10 col-sm-offset-1"
+		ng-class="{ private : vm.private }">
+		<h3>{{ select ? 'Séléctionnez vos joueurs' : 'Votre match' }}</h3>
+		<div class="tools">
+			<div ng-class="{ hidden : !vm.select }">		
+				<a href="" class="btn btn-xl" ng-click=" vm.onCancelClick()">Annuler</a>
+				<a href="" class="btn btn-xl" ng-click=" vm.onNextClick()">Suivant</a>
+			</div>
+			<div ng-class="{ hidden : !vm.create }">		
+				<a href="" class="btn btn-xl" ng-click="vm.onPreviousClick()">Précédent</a>
+				<a href="" class="btn btn-xl" ng-click="vm.onCreateClick()">Créer</a>
+			</div>
+			<div ng-class="{ hidden : !vm.select }">	
+				<div>	
+					<a class="btn btn-m" ng-click=" vm.onRandomClick()">Aléatoire</a>
+					<a class="btn btn-m" ng-class="{ private : vm.private }" ng-click="vm.onPrivateClick()">
+						{{ vm.private ? 'Privé' : 'Public' }}
+					</a>
+					<a class="btn btn-m" ng-click="">5 contre 5</a>
+					<span class="dropdown" dropdown>
+						<a class="btn btn-m dropdown-toggle" dropdown-toggle>
+							Urban 1
+							<span class="caret"></span>
+							</a>
+						<ul class="dropdown-menu" dropdown-menu>
+							<li> 
+								<a ng-click="action1()">Urban 1</a>
+							</li>
+							<li>
+								<a ng-click="action2()">Urban 2</a>
+							</li>	
+						</ul>
+					</span>
+				</div>
+				<input type="text" class="form-control input-search" ng-model="vm.query" placeholder="Rechercher un joueur" autofocus>
+			</div>
+		</div>
+		<div class="information" ng-class="{ hidden : !vm.create }">
+			<h4>Récapitulatif</h4>
+			<h5>Date: {{vm.date}}</h5>
+			<h5>Heure: {{vm.hours}}</h5>
+			<h5>Lieu: {{vm.citadium}}</h5>
+			<h5>5 contre 5 - {{vm.private ? 'privé' : 'public'}}</h5>
+		</div>
+		<div class="players-box" ng-class="{ hidden : !vm.select }" >
+			<div class="row availabilitiesPlayers">
+				<div>
+					<h4>Joueur(s) disponible(s) ({{playersAvailableFiltered.length}})
+				</div>				
+				<div class="col-sm-2 player" ng-repeat="user in playersAvailableFiltered = (vm.playersAvailable | filter: vm.search) track by $index" 
+					ng-class="{'col-sm-offset-1' : $index %5 === 0}" >		
+					<div ng-click="vm.onUserClick(user)" class="team-member" ng-class="vm.isSelected(user) ? 'selected' : 'no-selected'">
+						<div class="team-box">
+							<div class="team-box">
+								<img src="../../../assets/images/team/profil.jpg" class="img-responsive img-circle" alt="">							
+							</div>
+						</div>
+						<h4 class="player-name">{{user.Name}} {{user.FirstName}}</h4>
+					</div>
+				</div>
+			</div>		
+			<div class="row availabilitiesPlayers">
+				<div>
+					<h4>Joueur(s) incertain(s) ({{playersPerhapsFiltered.length}})
+				</div>
+				<div class="col-sm-2 player" ng-repeat="user in playersPerhapsFiltered = (vm.playersPerhaps | filter: vm.search) track by $index" 
+					ng-class="{'col-sm-offset-1' : $index %5 === 0}" >			
+					<div ng-click="vm.onUserClick(user)" class="team-member" ng-class="vm.isSelected(user) ? 'selected' : 'no-selected'">
+						<div class="team-box">
+							<div class="team-box">
+								<img src="../../../assets/images/team/profil.jpg" class="img-responsive img-circle" alt="">							
+							</div>
+						</div>
+						<h4 class="player-name">{{user.Name}} {{user.FirstName}}</h4>
+					</div>
+				</div>
+			</div>
+			<div class="row availabilitiesPlayers">
+				<div>
+					<h4>Joueur(s) non renseigné(s) ({{playersUnknownFiltered.length}})
+				</div>
+				<div class="col-sm-2 player" ng-repeat="user in playersUnknownFiltered = (vm.playersUnknown | filter: vm.search) track by $index" 
+					ng-class="{'col-sm-offset-1' : $index %5 === 0}" >	
+					<div ng-click="vm.onUserClick(user)" class="team-member" ng-class="vm.isSelected(user) ? 'selected' : 'no-selected'">
+						<div class="team-box">
+							<div class="team-box">
+								<img src="../../../assets/images/team/profil.jpg" class="img-responsive img-circle" alt="">							
+							</div>
+						</div>
+						<h4 class="player-name">{{user.Name}} {{user.FirstName}}</h4>
+					</div>
+				</div>
+			</div>
+			<div class="row availabilitiesPlayers">
+				<div>
+					<h4>Joueur(s) indisponible(s) ({{playersUnavailableFiltered.length}})
+				</div>
+				<div class="col-sm-2 player" ng-repeat="user in playersUnavailableFiltered = (vm.playersUnavailable | filter: vm.search) track by $index" 
+					ng-class="{'col-sm-offset-1' : $index %5 === 0}" >			
+					<div ng-click="vm.onUserClick(user)" class="team-member" ng-class="vm.isSelected(user) ? 'selected' : 'no-selected'">
+						<div class="team-box">
+							<div class="team-box">
+								<img src="../../../assets/images/team/profil.jpg" class="img-responsive img-circle" alt="">							
+							</div>
+						</div>
+						<h4 class="player-name">{{user.Name}} {{user.FirstName}}</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="recap-selected" ng-class="{ hidden : !vm.create }" >
+			<h4>Les sélectionnés ({{ vm.selected.length }}/10)</h4>		
+			<div class="col-sm-2 player" ng-repeat="user in vm.selected track by $index" ng-class="{'col-sm-offset-1' : $index %5 === 0}" >		
+				<div class="team-member selected">
+					<div class="team-box">
+						<div class="team-box">
+							<img src="../../../assets/images/team/profil.jpg" class="img-responsive img-circle" alt="">							
+						</div>
+					</div>
+					<h4 class="player-name">{{user.Name}} {{user.FirstName}}</h4>
+				</div>
+			</div>
+		</div>		
+	</div>
+</div>	

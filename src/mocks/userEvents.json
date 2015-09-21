@@ -1,0 +1,57 @@
+{
+	"Events": [
+		{
+	        "Id": 0,
+	        "Date": "2015-09-18",
+			"Hours": "18:00",
+			"Mode": "match",
+			"Users": [
+				{
+					"Id": 1,
+					"Name": "John",
+					"FirstName": "Doe"
+				},
+				{					
+					"Id": 2,
+					"Name": "John",
+					"FirstName": "Doe"
+				},
+				{
+					"Id": 3,
+					"Name": "John",
+					"FirstName": "Doe"
+				},
+				{					
+					"Id": 4,
+					"Name": "John",
+					"FirstName": "Doe"
+				},
+				{
+					"Id": 5,
+					"Name": "John",
+					"FirstName": "Doe"
+				},
+				{					
+					"Id": 6,
+					"Name": "John",
+					"FirstName": "Doe"
+				},
+				{
+					"Id": 7,
+					"Name": "John",
+					"FirstName": "Doe"
+				},
+				{					
+					"Id": 8,
+					"Name": "John",
+					"FirstName": "Doe"
+				},
+				{
+					"Id": 9,
+					"Name": "John",
+					"FirstName": "Doe"
+				}
+			] 
+		}
+	]
+}

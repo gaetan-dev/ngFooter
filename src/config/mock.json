@@ -1,0 +1,10 @@
+{
+    "ENV": {
+        "name": "mock",
+        "api": {
+            "USERS_URL": "http://uc431000vw7net:8882/api/Users",
+            "AVAILABILITIES_URL": "http://uc431000vw7net:8882/api/Availabilities/",
+            "EVENTS_URL": "http://uc431000vw7net:8882/api/Events/"
+        }
+    }
+}

@@ -1,0 +1,22 @@
+<div class="my-modal modal" id="organizeModal" tabindex="-1" role="dialog" 
+    ng-click="close()" data-dismiss="modal" aria-hidden="true">
+    <div class="modal-content" ng-click="$event.stopPropagation()">
+        <div class="close-modal" ng-click="close()" data-dismiss="modal" aria-hidden="true">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="modal-body" id="organize-calendar">
+                <div class="calendar" ng-class="{ hidden : !calendar }">
+                    <h2>Organiser un match</h2>
+                    <acme-organize-calendar availabilities="availabilitiesCopy" events="events"/>
+                </div> 
+                <div class="organize-box" ng-class="{ hidden : !organize }">
+                    <acme-organize-organize-box players="players"/>
+                </div>     
+            </div>    
+        </div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="calendar">
+	<div>
+		<acme-calendar/>
+	</div>
+    <div>
+        <a href="" class="btn btn-xl" ng-class="{ invisible: !vm.save }" ng-click="vm.onSaveClick()">Sauvegarder</a>
+    </div>
+	<div class="row legend-content">
+    <div class="legend-body col-xs-2 col-sm-offset-1">
+        <div class="fc-unknown fc-legend fc-block" >        
+        </div>
+        <div class="fc-block">Inconnu</div> 
+    </div>  
+    <div class=" col-xs-2">
+        <div class="fc-available fc-legend fc-block" >        
+        </div>
+        <div class="fc-block">Disponible</div> 
+    </div>
+    <div class=" col-xs-2">
+        <div class="fc-perhaps fc-legend fc-block" >        
+        </div>
+        <div class="fc-block">Incertain</div> 
+    </div>
+    <div class=" col-xs-2">
+        <div class="fc-unavailable fc-legend fc-block" >        
+        </div>
+        <div class="fc-block">Indisponible</div> 
+    </div>
+    <div class=" col-xs-2">
+        <div class="fc-match fc-legend fc-block" >        
+        </div>
+        <div class="fc-block">Match</div> 
+    </div>	
+</div>
