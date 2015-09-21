@@ -106,7 +106,6 @@
 					}
 					
 					players = [playersAvailable, playersPerhaps, playersUnknown, playersUnavailable];
-					console.log(players);
 					deferred.resolve(players);
 					return deferred.promise;
 				} 			

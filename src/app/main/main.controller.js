@@ -6,13 +6,14 @@
     .controller('MainController', MainController);
     
     /** @ngInject */
-    function MainController($rootScope, user) {
+    function MainController($rootScope, user, identityFactory) {
         var vm = this;
         
         // Initialize current user with ui-router (resolve)
         // vm.user = user
-        if (user.id) {
-            $rootScope.user = user;
+
+        if (identityFactory.getIdentity()) {
+            $rootScope.user = identityFactory.getIdentity();
         }
     }
 })();

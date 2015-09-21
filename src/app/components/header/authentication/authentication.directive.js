@@ -90,7 +90,8 @@
           firstName: vm.firstName,
           lastName: vm.lastName,
           email: vm.email,
-          password: vm.password
+          password: vm.password,
+          roles: 'User'
         })
         .then(function (response) {
           authentication(response.email, response.password);

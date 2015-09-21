@@ -196,7 +196,6 @@
                         vm.playersPerhaps = players[1];
                         vm.playersUnknown = players[2];
                         vm.playersUnavailable = players[3];
-                        console.log(vm.playersAvailable);
                     });
                     
                     vm.date = $scope.$parent.date;

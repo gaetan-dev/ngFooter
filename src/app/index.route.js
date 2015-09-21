@@ -1,3 +1,7 @@
+/*
+* http://stackoverflow.com/questions/22537311/angular-ui-router-login-authentication
+*/
+
 (function() {
   'use strict';
 
@@ -14,9 +18,18 @@
         controller: 'MainController',
         controllerAs: 'main',
         resolve: {
-          user: function(authenticationService) {
-            return authenticationService.auth();
+          user: function(authorizationFactory) {
+            return authorizationFactory.authorize();
           }
+        },
+        data: {
+          roles: []
+        }
+      })
+      .state('accessdenied', {
+        url: '/accessdenied',
+        data: {
+          roles: []
         }
       });
     $urlRouterProvider.otherwise('/');

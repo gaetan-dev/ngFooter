@@ -29,10 +29,10 @@
 				});
 			});			
 	
-			function AvailabilitiesModalController ($scope, myModalService, close, availabilities, events) {
+			function AvailabilitiesModalController ($scope, $state, myModalService, close, availabilities, events) {
 				/* Open */
 				myModalService.openModal();
-				
+	
 				/* Variables */
 				$scope.availabilitiesCopy = angular.copy(availabilities);
 				$scope.events = events;
