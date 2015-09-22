@@ -48,7 +48,7 @@ function config($logProvider, toastr, $httpProvider) {
 
 ## Auhtorization
 
-[This link](http://stackoverflow.com/questions/22537311/angular-ui-router-login-authentication)
+[Stackoverflow: angular ui-router login authentication](http://stackoverflow.com/questions/22537311/angular-ui-router-login-authentication)
 
 
 
