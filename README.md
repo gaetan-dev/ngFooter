@@ -31,3 +31,26 @@ $ gulp serve stubby config --env=mock
 $ gulp serve config --env=dev
 ```
 
+## Security
+### Authentication
+
+This application use the cookie authentification: 
+
+```javascript
+function config($logProvider, toastr, $httpProvider) {
+    /*
+    ...
+    */
+    
+    $httpProvider.defaults.withCredentials = true;
+}
+```
+
+### Auhtorization
+
+[Stackoverflow: angular ui-router login authentication](http://stackoverflow.com/questions/22537311/angular-ui-router-login-authentication)
+
+
+
+
+
