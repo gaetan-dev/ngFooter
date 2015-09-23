@@ -4,7 +4,8 @@ angular.module("config", [])
 	"name": "dev",
 	"api": {
 		"URL": "http://uc431000vw7net:1337/",
-		"USERS_URL": "http://uc431000vw7net:1337/user/"
+		"USER_URL": "http://uc431000vw7net:1337/user/",
+		"AVAILABILITY_URL": "http://uc431000vw7net:1337/availability/"
 	}
 })
 

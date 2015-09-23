@@ -16,7 +16,7 @@
          * @return user
          */ 
         api.getUserId = function (userId) {
-		    return $http.get(ENV.api.USERS_URL + userId)
+		    return $http.get(ENV.api.USER_URL + userId)
 		        .then(function (response) {
 		            return response.data;
 		        });
@@ -29,11 +29,12 @@
          * @return currentUser
          */ 
         api.createUser = function (user) {
-		    return $http.post(ENV.api.USERS_URL, {
+		    return $http.post(ENV.api.USER_URL, {
                 firstName: user.firstName,
                 lastName: user.lastName,
                 email: user.email,
-                password: user.password           
+                password: user.password,
+                role: 'User'       
             })
             .then(function (response) {
                 return response.data;

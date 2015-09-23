@@ -20,16 +20,10 @@
          * Add the availability in the availabilities array 
          * @method addAvailability
          * @param availabilities
-         * @param date
-         * @param hours
-         * @param mode
+         * @param availability
          */
-        function addAvailability (availabilities, date, hours, mode) {
-            availabilities.push({
-                Date: date,
-                Hours: hours,
-                Mode: mode
-            });
+        function addAvailability (availabilities, availability) {
+            availabilities.push(availability)
         }
         
         /**
@@ -41,9 +35,11 @@
          * @return availability
          */ 
     	function fetchAvailability (availabilities, date, hours) {
-            for (var i = 0; i < availabilities.length; i++) {
-                if (availabilities[i].Date === date && availabilities[i].Hours === hours) {
-                    return availabilities[i];
+            if (availabilities) {
+                for (var i = 0; i < availabilities.length; i++) {
+                    if (availabilities[i].date === date && availabilities[i].hours === hours) {
+                        return availabilities[i];
+                    }
                 }
             }
         }
@@ -91,13 +87,15 @@
          * @return availability
          */ 
     	function fetchEvent (events, date, hours) {
-            for (var i = 0; i < events.length; i++) {
-                if (events[i].Date === date && events[i].Hours === hours) {
-                    return events[i];
+            if (events) {
+                for (var i = 0; i < events.length; i++) {
+                    if (events[i].Date === date && events[i].Hours === hours) {
+                        return events[i];
+                    }
                 }
             }
         }
-    
+ 
         return api;
     }
 })();

@@ -44,18 +44,18 @@
                     date: currentDate,
                     availabilities: (availabilities || [])
                         .filter(function (availability) {
-                            return moment(availability.Date).isSame(currentDate, 'day');
+                            return moment(availability.date).isSame(currentDate, 'day');
                         })
                         .map(function (availability) {
-                            availability.Label = availability.Mode;
+                            availability.label = availability.mode;
                             return availability;
                         }),
                     events: (events || [])
                         .filter(function (event) {
-                            return moment(event.Date).isSame(currentDate, 'day');
+                            return moment(event.date).isSame(currentDate, 'day');
                         })
                         .map(function (event) {
-                            event.Label = event.Mode;
+                            event.label = event.mode;
                             return event;
                         })
                 };       
@@ -103,15 +103,15 @@
         
         function computeCaseClassesNext (classes, array) {
             for (var i = 0; i < array.length; i++) {
-                switch(array[i].Hours) {
+                switch(array[i].hours) {
                     case "18:00":
-                        classes[0] = ('fc-' + array[i].Mode.toLowerCase());
+                        classes[0] = ('fc-' + array[i].mode.toLowerCase());
                         break;
                     case "18:30":
-                        classes[1] = ('fc-' + array[i].Mode.toLowerCase());
+                        classes[1] = ('fc-' + array[i].mode.toLowerCase());
                         break;
                     case "19:00":
-                        classes[2] = ('fc-' + array[i].Mode.toLowerCase());
+                        classes[2] = ('fc-' + array[i].mode.toLowerCase());
                 }
             }                       
         }         

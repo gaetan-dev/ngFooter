@@ -18,7 +18,7 @@
         controller: 'MainController',
         controllerAs: 'main',
         resolve: {
-          user: function(authorizationFactory) {
+          identity: function(authorizationFactory) {
             return authorizationFactory.authorize();
           }
         },

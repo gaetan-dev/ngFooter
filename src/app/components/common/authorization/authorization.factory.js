@@ -8,9 +8,14 @@
 		function authorizationFactory ($rootScope, $state, identityFactory) {
     		var api = this;
 			
+			/**
+			* Check the current user authorizations
+			* method authorize
+			* @return promise {}
+			**/
 			api.authorize = function() {
 				return identityFactory.identity()
-				.then(function() {
+				.then(function(identity) {
 					var isAuthenticated = identityFactory.isAuthenticated();
 					if ($rootScope.toState.data.roles && $rootScope.toState.data.roles.length > 0 && !identityFactory.isInAnyRole($rootScope.toState.data.roles)) {
 						if (isAuthenticated) {
@@ -25,6 +30,7 @@
 							$state.go('home');
 						}
 					}
+					return identity;
 				});
 			};
 				

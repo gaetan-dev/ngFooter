@@ -6,18 +6,18 @@
 		.factory('availabilitiesModalService', availabilitiesModalService); 
       
     /** @ngInject */  
-    function availabilitiesModalService(ModalService, availabilitiesService, eventsService) {
+    function availabilitiesModalService($rootScope, ModalService, availabilitiesService, eventsService) {
 		var api = {};
 		
 		// Modal Availabilities
 		api.showAvailabilities = function() {
-			availabilitiesService.getUserAvailabilities(1).then(function (availabilities) {
-				eventsService.getUserEvents(1).then(function (events) {
+			availabilitiesService.getUserAvailabilities($rootScope.user.id).then(function (availabilities) {
+				// eventsService.getUserEvents($rootScope.user).then(function (events) {
 					ModalService.showModal({
 						templateUrl: 'app/components/services/availabilities/availabilities.modal.html',
 						controller: AvailabilitiesModalController,
 						inputs: {
-							availabilities: availabilities.Availabilities,
+							availabilities: availabilities,
 							events: events.Events
 						}
 					})
@@ -26,7 +26,7 @@
 						modal.close.then(function() {
 						});
 					});
-				});
+				// });
 			});			
 	
 			function AvailabilitiesModalController ($scope, $state, myModalService, close, availabilities, events) {
@@ -36,7 +36,6 @@
 				/* Variables */
 				$scope.availabilitiesCopy = angular.copy(availabilities);
 				$scope.events = events;
-				
 				$scope.close = function (result) {
 					myModalService.closeModal(close, result);
 				};

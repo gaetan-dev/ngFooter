@@ -1,0 +1,30 @@
+[
+	{
+	    "request": {
+	        "url": "api/user/1",
+	        "method": "GET"
+	    },
+	    "response": {
+	        "status": 200,
+	        "latency": 500,
+	        "headers": {
+	            "Content-Type": "application/json"
+	        },
+	        "file": "src/mocks/currentUser.json"
+	    }
+	},
+	{
+	    "request": {
+	        "url": "api/user/",
+	        "method": "GET"
+	    },
+	    "response": {
+	        "status": 200,
+	        "latency": 500,
+	        "headers": {
+	            "Content-Type": "application/json"
+	        },
+	        "file": "src/mocks/users.json"
+	    }
+	}
+]
