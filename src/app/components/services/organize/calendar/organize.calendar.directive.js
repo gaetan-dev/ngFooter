@@ -156,7 +156,8 @@
                     }
                     
                     /* Watchers */
-                    scope.$watchCollection('availabilities', scope.updateCalendar);   
+                    scope.$watchCollection('availabilities', scope.updateCalendar); 
+                    scope.$watchCollection('events', scope.updateCalendar);   
                 }
         };
                 

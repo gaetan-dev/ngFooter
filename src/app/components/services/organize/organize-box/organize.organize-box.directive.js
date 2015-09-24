@@ -103,7 +103,8 @@
              * @method onCreateClick
             */ 
             function onCreateClick () {
-                eventsService.createEvent(vm.date, vm.hours, 'match', vm.private, vm.selected).then(function () {
+                eventsService.createEvent(vm.date, vm.hours, 'match', vm.private, vm.selected).then(function (event) {
+                    $scope.$parent.events.push(event);
                     organizeModalService.initializeOrganizeModalData(function() {
                         $scope.$parent.switchViews();
                         exitSelect();
