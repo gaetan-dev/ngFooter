@@ -7,43 +7,51 @@
       
     /** @ngInject */  
     function eventsService($rootScope, $q, $http, $timeout, ENV) {
-        var api = this;   
+        var api = this; 
+        
+        /* Methodes */
+        api.getEvents = getEvents;
+        api.getUserEvents = getUserEvents;
+        api.createEvent = createEvent;
+        api.updateEvent = updateEvent;
+        api.updateEvents = updateEvents;
+        api.removeEvent = removeEvent;
                
         /**
          * GET HTTP restfull
          * Get all events 
          * @method getEvents
-         * @return events
+         * @return events []
          */ 
-        api.getEvents = function () {
+        function getEvents () {
             return $http.get(ENV.api.EVENT_URL)
                 .then(function (response) {
                     return response.data; 
                 }); 
-        };
+        }
         
         /**
          * GET HTTP restfull
          * Get all events of the user id 
          * @method getUserEvents
          * @param userId
-         * @return events
+         * @return events []
          */ 
-        api.getUserEvents = function (user_id) {
+        function getUserEvents (user_id) {
             return $http.get(ENV.api.EVENT_URL + '?user_id=' + user_id)
                 .then(function (response) {
                     return response.data; 
                 }); 
-        };
+        }
         
         /**
          * CREATE HTTP restfull
          * Create the event with the paramters
          * @method createEvent
          * @param id
-         * @return 
+         * @return event {}
          */
-        api.createEvent = function (date, hours, mode, prvt, users) {
+        function createEvent (date, hours, mode, prvt, users) {
             return $http.post(ENV.api.EVENT_URL, {
                 date: date,
                 hours: hours,
@@ -51,19 +59,11 @@
                 'private': prvt,
                 master: $rootScope.user.id,
                 users: users
-            });
-        };
-        
-        /**
-         * PUT HTTP restfull
-         * Update the events
-         * @method updateEvents
-         * @param events
-         * @return $http
-         */
-        api.updateEvents = function (events) {
-            return $http.put(ENV.api.EVENT_URL, events);
-        };
+            })
+                .then(function (response) {
+                    return response.data; 
+                }); 
+        }
         
         /**
          * PUT HTTP restfull
@@ -71,14 +71,31 @@
          * @method updateEvent
          * @param id
          * @param mode
-         * @return $http
+         * @return event []
          */
-        api.updateEvent = function (id, mode) {
+        function updateEvent (id, mode) {
             return $http.put(ENV.api.EVENT_URL, {
                 Id: id,
                 Mode: mode,
-            });
-        }; 
+            })
+                .then(function (response) {
+                    return response.data; 
+                }); 
+        }
+        
+        /**
+         * PUT HTTP restfull
+         * Update the events
+         * @method updateEvents
+         * @param events
+         * @return events []
+         */
+        function updateEvents (events) {
+            return $http.put(ENV.api.EVENT_URL, events)
+                .then(function (response) {
+                    return response.data; 
+                }); 
+        }     
         
         /**
          * Remove the event
@@ -86,12 +103,12 @@
          * @param id
          * @return updateremoveEvent(id, mode)
          */ 
-        api.removeEvent = function (id) {
+        function removeEvent (id) {
             // DELETE actions are not authorized @AXA, so we use the same actions
             // This acts like a toggle : creates it if it doesn't exists, and then
             // toggle a boolean
             return api.updateAvailability(id, 'unknown');
-        };   
+        }  
               
         return api;
     }

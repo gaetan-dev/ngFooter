@@ -20,40 +20,49 @@
             link:     
                 function postLink(scope) {  
                     
+                    /* Variables */
                     scope.currentDate = moment();                  
                     scope.WEEK_DAYS = moment.weekdaysMin();
-                    // Remove Saturday and Sunday
-                    scope.WEEK_DAYS.pop();
-                    scope.WEEK_DAYS.shift();  
-                                   
+                    scope.WEEK_DAYS.pop();      // Remove Saturday 
+                    scope.WEEK_DAYS.shift();    // Remove Sunday 
+                    
+                    var numberOfHours = 3;                                  
+                    
+                    /* Methodes */
+                    scope.updateCalendar = updateCalendar;
+                    scope.computeCaseClasses = computeCaseClasses;
+                    scope.previousMonth = previousMonth;
+                    scope.nextMonth = nextMonth;
+                    scope.resetMonth = resetMonth;
+
+      
                     /**
                      * Update the calendar's header and calendar's datas 
                      * @method updateCalendar
                      */                                              
-                    scope.updateCalendar = function() {                 
+                    function updateCalendar () {                 
                         scope.displayedDate = scope.currentDate.format('MMMM') + ' ' + scope.currentDate.format('YYYY');
                         scope.calendarData = generateCalendarData(scope.currentDate, scope.availabilities, scope.events);
-                    };
+                    }
                     
                     /**
                      * Generate calendar's datas
                      * @method generateCalendarData
                      * @param date
                      * @param availabilities
-                     * @return days
+                     * @return days []
                      */
                     function generateCalendarData(date, availabilities, events) {
                         return calendarFactory.generateCalendarData(date, availabilities, events, scope.computeCaseClasses);
                     } 
                     
                     /**
-                    * Built the table of case's state for each hours for the html classes
-                    * @method computeCaseClasses
-                    * @param date
-                    * @return classes
-                    */
-                    var numberOfHours = 3;                                  
-                    scope.computeCaseClasses = function (availabilities, events) {
+                     * Built the table of case's state for each hours for the html classes
+                     * @method computeCaseClasses
+                     * @param date
+                     * @return classes
+                     */
+                    function computeCaseClasses (availabilities, events) {
                         var classes = []; 
                         
                         var i;
@@ -65,32 +74,33 @@
                         calendarFactory.computeCaseClassesNext(classes, events);
                         
                         return classes;
-                    };                                        
+                    }                                        
                     
-                    // APIs
-                    scope.previousMonth = function () {
+                    /* APIs */
+                    function previousMonth () {
                         calendarFactory.previousMonth(scope.currentDate).then(function (currentDate) {
                             scope.currentDate = currentDate;
                             scope.updateCalendar();
                         });
-                    };
+                    }
                     
-                    scope.nextMonth = function () {
+                    function nextMonth () {
                         calendarFactory.nextMonth(scope.currentDate).then(function (currentDate) {
                             scope.currentDate = currentDate;
                             scope.updateCalendar();
                         });
 
-                    };
+                    }
                     
-                    scope.resetMonth = function () {
+                    function resetMonth () {
                        calendarFactory.nextMonth(scope.currentDate).then(function (currentDate) {
                             scope.currentDate = currentDate;
                             scope.updateCalendar();
                         });
-                    };  
+                    }  
                     
-                    // Watchers
+                    
+                    /* Watchers */
                     scope.$watchCollection('availabilities', scope.updateCalendar);    
                 }
             };
@@ -103,12 +113,16 @@
                
                /* Variables */
                 vm.availabilities = $scope.availabilities;
-                vm.availabilities_static = angular.copy(vm.availabilities);
-                vm.availabilities_created = [];
-                vm.availabilities_updated = [];
-
+                vm.availabilitiesStatic = angular.copy(vm.availabilities);
+                vm.availabilitiesCreated = [];
+                vm.availabilitiesUpdated = [];
                 vm.events = $scope.events;
-                vm.save = false;       
+                vm.save = false; 
+                
+                /* Methodes */
+                vm.onCaseClick = onCaseClick;
+                vm.onSaveClick = onSaveClick;
+                  
 
                 /**
                  * Action when the user click on the case of one day
@@ -116,7 +130,7 @@
                  * @param date
                  * @param hours
                  */
-                vm.onCaseClick = function (date, hours) {
+                function onCaseClick (date, hours) {
                     // If it's a date in the past, do nothing
                     if (date.isBefore() && !date.isSame(moment(), 'day')) { return; }
                     
@@ -127,30 +141,61 @@
                     
                     vm.save = true;  
                     
-                    var availability_static = calendarService.fetchAvailability(vm.availabilities_static, date, hours);
-                    availability_static ? updateAvailability(availability_static) : newAvailability(date, hours);
+                    var availabilityStatic = calendarService.fetchAvailability(vm.availabilitiesStatic, date, hours);
+                    if (availabilityStatic) { 
+                        updateAvailability(availabilityStatic);
+                    } else { 
+                        newAvailability(date, hours);
+                    }
 
                     $scope.updateCalendar();                  
-                };
-                
-                function updateAvailability(availability_static) {
-                    var availability = calendarService.fetchAvailability(vm.availabilities, availability_static.date, availability_static.hours);
-                    computeAvailability(availability);
-                    var availability_updated = calendarService.fetchAvailability(vm.availabilities_uptated, availability_static.date, availability_static.hours);
-                    availability_updated ? computeAvailability(availability_updated) : calendarService.addAvailability(vm.availabilities_updated, availability);
                 }
                 
+                /**
+                 * @method updateAvailability
+                 * @param availabilityStatic
+                 */
+                function updateAvailability(availabilityStatic) {
+                    var availability = calendarService.fetchAvailability(vm.availabilities, availabilityStatic.date, availabilityStatic.hours);
+                    switchMode(availability);
+                    var availability_updated = calendarService.fetchAvailability(vm.availabilitiesUpdated, availabilityStatic.date, availabilityStatic.hours);
+                    if (availability_updated) {
+                        switchMode(availability_updated);
+                    }
+                    else {
+                        calendarService.addAvailability(vm.availabilitiesUpdated, availability);
+                    }
+                }
+                
+                /**
+                 * @method availabilityCreated
+                 * @param date
+                 * @param hours
+                 */
                 function newAvailability(date, hours) {
-                    var availability_created = calendarService.fetchAvailability(vm.availabilities_created, date, hours);
-                    availability_created ? updateNewAvailability(availability_created) : addNewAvailability(date, hours);
+                    var availabilityCreated = calendarService.fetchAvailability(vm.availabilitiesCreated, date, hours);
+                    if (availabilityCreated) {
+                        updateNewAvailability(availabilityCreated);
+                    } else {
+                        addNewAvailability(date, hours);
+                    }
                 } 
                 
-                function updateNewAvailability(availability_created) {
-                    var availability = calendarService.fetchAvailability(vm.availabilities, availability_created.date, availability_created.hours);       
-                    computeAvailability(availability);
-                    computeAvailability(availability_created);
+                /**
+                 * @method updateNewAvailability
+                 * @param availabilityCreated
+                 */
+                function updateNewAvailability(availabilityCreated) {
+                    var availability = calendarService.fetchAvailability(vm.availabilities, availabilityCreated.date, availabilityCreated.hours);       
+                    switchMode(availability);
+                    switchMode(availabilityCreated);
                 }
                 
+                /**
+                 * @method addNewAvailability
+                 * @param date
+                 * @param hours
+                 */
                 function addNewAvailability(date, hours) {
                     var availability = {
                         date: date,
@@ -158,12 +203,17 @@
                         mode: 'available'
                     };
                     
-                    var availability_created = angular.copy(availability);
+                    var availabilityCreated = angular.copy(availability);
                     calendarService.addAvailability(vm.availabilities, availability);
-                    calendarService.addAvailability(vm.availabilities_created, availability_created);
+                    calendarService.addAvailability(vm.availabilitiesCreated, availabilityCreated);
                 } 
                 
-                function computeAvailability (availability) {
+                /**
+                 * Change the availability's mode
+                 * @method computeAvailability
+                 * @param availability
+                 */
+                function switchMode (availability) {
                      switch (availability.mode) {
                         case 'available':
                             availability.mode = 'perhaps';          
@@ -180,21 +230,27 @@
                     }
                 }   
                 
-                vm.onSaveClick = function () {
-                    if (vm.availabilities_created.length > 0) {
-                        availabilitiesService.createAvailabilities(vm.availabilities_created).then(function () {
-                            vm.availabilities_created = [];
+                /**
+                 * Action when the user click on the save button
+                 * @method onSaveClick
+                 * @param date
+                 * @param hours
+                 */
+                function onSaveClick () {
+                    if (vm.availabilitiesCreated.length > 0) {
+                        availabilitiesService.createAvailabilities(vm.availabilitiesCreated).then(function () {
+                            vm.availabilitiesCreated = [];
                         });
                     }
-                    if (vm.availabilities_updated.length > 0) {
-                        availabilitiesService.updateAvailabilities(vm.availabilities_updated).then(function () {  
-                            vm.availabilities_updated = [];
+                    if (vm.availabilitiesUpdated.length > 0) {
+                        availabilitiesService.updateAvailabilities(vm.availabilitiesUpdated).then(function () {  
+                            vm.availabilitiesUpdated = [];
                         });
                     }
                     
-                    vm.availabilities_static = angular.copy(vm.availabilities);
+                    vm.availabilitiesStatic = angular.copy(vm.availabilities);
                     vm.save = false;
-                };              
+                }             
             }
         }
 })();

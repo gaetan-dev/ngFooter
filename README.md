@@ -31,6 +31,17 @@ $ gulp serve stubby config --env=mock
 $ gulp serve config --env=dev
 ```
 
+## TODO
+Login / Logout => OK
+Authentication => OK
+Services:
+    Availabilities => OK
+    Events => OK
+    Monitoring match => NO
+Event => NO
+Players => NO
+Contact => NO
+
 ## Security
 ### Authentication
 

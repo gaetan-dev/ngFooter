@@ -27,12 +27,20 @@
             vm.clickOnAvailabilities = clickOnAvailabilities;
             vm.clickOnOrganize = clickOnOrganize;
             
-            // Modal Availabilities  
+            /**
+             * Action when the user click on the availabilities button
+             * Show the availabilities modal
+             * @method clickOnAvailabilities
+             */  
             function clickOnAvailabilities () {
                 availabilitiesModalService.showAvailabilities();
             }
             
-            // Modal Organize
+             /**
+              * Action when the user click on the organize button
+              * Show the organize modal
+              * @method clickOnOrganize
+              */ 
             function clickOnOrganize () {
                 organizeModalService.showOrganize();
             }

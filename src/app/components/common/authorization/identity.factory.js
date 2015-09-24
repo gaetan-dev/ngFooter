@@ -5,63 +5,82 @@
         .module('footer')
 		.factory('identityFactory', identityFactory); 
 
-	function identityFactory($q, authenticationService) {
+	function identityFactory ($q, authenticationService) {
 		var api = this;
 		
-		var _identity = undefined,
-		_authenticated = false;
+		/* Variables */
+		var _identity;
+		var _authenticated = false;
+		
+		/* Methodes */
+		api.isIdentityResolved = isIdentityResolved;
+		api.isAuthenticated = isAuthenticated;
+		api.isInAnyRole = isInAnyRole;
+		api.authenticate = authenticate;
+		api.identity = identity;
+		api.getIdentity = getIdentity;
+		
 	
 		/**
-		* Return if the user identity is defined
-		* method isIdentityResolved
-		* @return bool
-		**/
-		api.isIdentityResolved = function() {
+		 * Return if the user identity is defined
+		 * @method isIdentityResolved
+		 * @return bool
+		 */
+		function isIdentityResolved () {
 			return angular.isDefined(_identity);
-		};
+		}
 		
 		/**
-		* Return if the current user is authenticated
-		* method isAuthenticated
-		* @return bool
-		**/
-		api.isAuthenticated = function() {
+		 * Return if the current user is authenticated
+		 * @method isAuthenticated
+		 * @return bool
+		 */
+		function isAuthenticated () {
 			return _authenticated;
-		};
+		}
 		
 		/**
-		* Return if the user has the require level to access to the url
-		* method isInAnyRole
-		* @return bool
-		**/
-		api.isInAnyRole = function(roles) {
+		 * Return if the user has the require level to access to the url
+		 * @method isInAnyRole
+		 * @return bool
+		 */
+		function isInAnyRole (roles) {
 			if (!_authenticated || !_identity.role) { return false; }
 	
 			for (var i = 0; i < roles.length; i++) {
-				if (this.isInRole(roles[i])) { return true; }
+				if (isInRole(roles[i])) { return true; }
 			}
 	
 			return false;
-		};
-		
-		api.isInRole = function(role) {
-			if (!_authenticated || !_identity.role) { return false; }
-			return _identity.role.indexOf(role) !== -1;
-		};
-		
-		
-		api.authenticate = function(identity) {
-			_identity = identity;
-			_authenticated = identity !== null;
-		};
+		}
 		
 		/**
-		* Return the identity of the current user
-		* method identity
-		* @param force
-		* @return promise {}
-		**/
-		api.identity = function(force) {
+		 * @method isInRole
+		 * @param role 
+		 * @return bool
+		 */
+		function isInRole (role) {
+			if (!_authenticated || !_identity.role) { return false; }
+			return _identity.role.indexOf(role) !== -1;
+		}
+		
+		/**
+		 * Assign values to _identity and _authenticatie
+		 * @method authenticate
+		 * @param identity
+		 */
+		function authenticate (identity) {
+			_identity = identity;
+			_authenticated = identity !== null;
+		}
+		
+		/**
+		 * Authenticate the current user
+		 * @method identity
+		 * @param force
+		 * @return promise {}
+		 */
+		function identity (force) {
 			var deferred = $q.defer();
 	
 			if (force === true) { _identity = undefined; }
@@ -86,11 +105,16 @@
 				});
 	
 			return deferred.promise;
-		};
+		}
 		
-		api.getIdentity = function () {
+		/**
+		 * Return the identity of the current user
+		 * @method getIdentity
+		 * @return _identity {}
+		 */
+		function getIdentity () {
 			return _identity;
-		};
+		}
 		
 		return api;
 	}

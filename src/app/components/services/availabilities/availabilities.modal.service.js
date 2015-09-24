@@ -9,8 +9,10 @@
     function availabilitiesModalService($rootScope, ModalService, availabilitiesService, eventsService) {
 		var api = {};
 		
-		// Modal Availabilities
-		api.showAvailabilities = function() {
+		/* Methodes */
+		api.showAvailabilities = showAvailabilities;
+
+		function showAvailabilities () {
 			availabilitiesService.getUserAvailabilities($rootScope.user.id).then(function (availabilities) {
 				eventsService.getUserEvents($rootScope.user.id).then(function (events) {
 					ModalService.showModal({
@@ -36,11 +38,21 @@
 				/* Variables */
 				$scope.availabilitiesCopy = angular.copy(availabilities);
 				$scope.events = events;
-				$scope.close = function (result) {
+				
+				/* Methodes */
+				$scope.close = closeModal;
+				
+				
+				/**
+				 * Close the modal
+				 * @method closeModal
+				 * @param result
+				 */
+				function closeModal (result) {
 					myModalService.closeModal(close, result);
-				};
+				}
 			}
-		};
+		}
 		
 		return api;
 	}

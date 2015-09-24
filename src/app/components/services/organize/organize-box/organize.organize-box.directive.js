@@ -55,11 +55,11 @@
             // Go to /* Watcher */
             
             /**
-            * Action when the user click on the user in the selection-box
-            * Selected the user for the event
-            * @method onUserClick
-            * @param user
-            */
+             * Action when the user click on the user in the selection-box
+             * Selected the user for the event
+             * @method onUserClick
+             * @param user
+             */
             function onUserClick (user) { 
                 if (!removeSelectedUser(user)) {
                     addSelectedUser(user);
@@ -67,40 +67,40 @@
             }
             
             /**
-            * Action when the user click on the next button in the selection-box
-            * Go to the next page
-            * @method onNextClick
-            */
+             * Action when the user click on the next button in the selection-box
+             * Go to the next page
+             * @method onNextClick
+             */
             function onNextClick () {
                 vm.select = false;
                 vm.create = true; 
             }
             
             /**
-            * Action when the user click on the cancel button in the selection-box
-            * Return on the organize-calendar
-            * @method onCancelClick
-            */   
+             * Action when the user click on the cancel button in the selection-box
+             * Return on the organize-calendar
+             * @method onCancelClick
+             */   
             function onCancelClick () {
                 exitSelect();
                 $scope.$parent.switchViews();
             }
             
             /**
-            * Action when the user click on the previous button in the selection-box
-            * Go to the previous page
-            * @method onPreviousClick
-            */ 
+             * Action when the user click on the previous button in the selection-box
+             * Go to the previous page
+             * @method onPreviousClick
+             */ 
             function onPreviousClick () {
-                vm.select = true;
+                vm.select =  true;
                 vm.create = false;  
             }
             
             /**
-            * Action when the user click on the create button in the selection-box
-            * Create the event
-            * Modify database
-            * @method onCreateClick
+             * Action when the us er click on the create button in the selection-box
+             * Create the event
+             * Modify database
+             * @method onCreateClick
             */ 
             function onCreateClick () {
                 eventsService.createEvent(vm.date, vm.hours, 'match', vm.private, vm.selected).then(function () {
@@ -112,19 +112,19 @@
             }
             
             /**
-            * Action when the user click on the private/public button in the selection-box
-            * Modify the private property
-            * @method onPrivateClick
-            */
+             * Action when the user click on the private/public button in the selection-box
+             * Modify the private property
+             * @method onPrivateClick
+             */
             function onPrivateClick () {
                 vm.private = !vm.private;
             }
             
             /**
-            * Action when the user click on the random button in the selection-box
-            * Random select users for the event
-            * @method onRandomClick
-            */
+             * Action when the user click on the random button in the selection-box
+             * Random select users for the event
+             * @method onRandomClick
+             */ 
             function onRandomClick () {
                 var list = angular.copy(vm.players_available);
                 var index = toolsService.findUserIndex(vm.players_available, $rootScope.user);
@@ -137,40 +137,40 @@
             }
             
             /**
-            * Filter used for the search-bar
-            * @method search
-            * @param user
-            */
+             * Filter used for the search-bar
+             * @method search
+             * @param user
+             */
             function search (user) {
                 return  user.lastName.match(toolsService.lowercaseAll(vm.query)) !== null ||
                         user.firstName.match(toolsService.lowercaseAll(vm.query)) !== null;
             }
             
             /**
-            * Determines if the user is selected for the match
-            * @method isSelected
-            * @param user
-            * @return bool
-            */
+             * Determines if the user is selected for the match
+             * @method isSelected
+             * @param user
+             * @return bool
+             */
             function isSelected (user) {
                 return toolsService.findUserIndex(vm.selected, user) !== -1;
             }
             
             /**
-            * Add the user in selected[]
-            * @method addSelectedUser
-            * @param user
-            */
+             * Add the user in selected[]
+             * @method addSelectedUser
+             * @param user
+             */
             function addSelectedUser(user) {
                 vm.selected.push(user);
             }
             
             /**
-            * Remove the user in selected[]
-            * @method removeSelectedUser
-            * @param user
-            * @retrun bool
-            */
+             * Remove the user in selected[]
+             * @method removeSelectedUser
+             * @param user
+             * @retrun bool
+             */
             function removeSelectedUser(user) {
                 var index = toolsService.findUserIndex(vm.selected, user);
                 if (index > -1) {
@@ -181,6 +181,11 @@
                 return false;
             }  
             
+            /**
+             * Call when the current user close the select-box
+             * Reinitialize variables
+             * @method exitSelect
+             */
             function exitSelect() {
                 vm.select = true;
                 vm.create = false;

@@ -9,8 +9,10 @@
     function playerModalService(ModalService) {
 		var api = {};
 		
-		// Modal Availabilities
-		api.showPlayer = function(player) {
+		/* Methodes */ 
+		api.showPlayer = showPlayer;
+		
+		function showPlayer (player) {
 			ModalService.showModal({
 				templateUrl: 'app/components/team/player/player.modal.html',
 				controller: PlayerModalController,
@@ -30,8 +32,17 @@
 				
 				/* Variables */
 				$scope.player = player;
-
-				$scope.close = function (result) {
+				
+				/* Methodes */
+				$scope.close = closeModal;
+				
+				
+				/**
+				 * Close the modal
+				 * @method closeModal
+				 * @param result
+				 */
+				function closeModal (result) {
 					myModalService.closeModal(close, result);
 				};
 				

@@ -6,7 +6,7 @@
 		.service('calendarService', calendarService); 
       
     /** @ngInject */  
-    function calendarService() {
+    function calendarService () {
         var api = this; 
         
         /* Methodes */

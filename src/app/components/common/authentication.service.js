@@ -7,16 +7,22 @@
       
     /** @ngInject */  
     function authenticationService($http, ENV) {
-        var api = {};            
+        var api = {}; 
+        
+        /* Methodes */
+         api.login = login;
+         api.logout = logout;
+         api.auth = auth;
+         
          
         /**
          * POST HTTP restfull
          * @method login
          * @param email
          * @param password
-         * @return currentUser
+         * @return currentUser {}
          */ 
-        api.login = function (email, password) {
+        function login (email, password) {
 		    return $http.post(ENV.api.URL + 'login/', {
                 email: email,
                 password: password
@@ -24,31 +30,31 @@
             .then(function (response) {
                 return response.data;
             });
-		};
+		}
 		
 		/**
          * GET HTTP restfull
          * @method logout
-         * @return user
+         * @return 
          */ 
-		api.logout = function () {
+		function logout () {
 			return $http.get(ENV.api.URL + 'logout/')
 			.then(function (response) {
                 return response.data;
             });
-		};
+		}
         
         /**
          * GET HTTP restfull
          * @method auth
-         * @return user
+         * @return currentUser {}
          */ 
-		api.auth = function () {
+		function auth () {
 			return $http.get(ENV.api.URL + 'auth/')
                 .then(function (response) {
                     return response.data;
                 });
-		};
+		}
         
         return api;
     }

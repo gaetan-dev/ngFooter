@@ -6,27 +6,27 @@
 		.factory('calendarFactory', calendarFactory); 
       
     /** @ngInject */  
-    function calendarFactory($q, $http, $timeout, ENV, moment) {
+    function calendarFactory ($q, $http, $timeout, ENV, moment) {
         var api = this;   
         
-        /* Variable */
+        /* Variables */
         var reverse = false; 
         
-        /* Methode */
+        /* Methodes */
         api.generateCalendarData = generateCalendarData;
         api.computeCaseClassesNext = computeCaseClassesNext;
         api.previousMonth = previousMonth;
         api.nextMonth = nextMonth;
         api.resetMonth = resetMonth;
          
-        /**
-        * Generate calendar's datas
-        * @method generateCalendarData
-        * @param date
-        * @param availabilities
-        * @param callback
-        * @return days
-        */
+        /** 
+         * Generate calendar's datas
+         * @method generateCalendarData
+         * @param date
+         * @param availabilities
+         * @param callback
+         * @return days
+         */
         function generateCalendarData (date, availabilities, events, callback) {
             var day = moment(date),
                 firstDayOfMonth = day.date(1),
@@ -73,11 +73,11 @@
         }
             
         /**
-        * Built the table of state for each day for the html classes
-        * @method computeDayClasses
-        * @param date
-        * @return classes
-        */
+         * Built the table of state for each day for the html classes
+         * @method computeDayClasses
+         * @param date
+         * @return classes
+         */
         function computeDayClasses (date) {
             var classes = [],
                 today = moment();
@@ -101,6 +101,11 @@
             return classes;
         } 
         
+        /**
+         * @method computeCaseClassesNext
+         * @param classes
+         * @param array
+         */
         function computeCaseClassesNext (classes, array) {
             for (var i = 0; i < array.length; i++) {
                 switch(array[i].hours) {
@@ -117,11 +122,11 @@
         }         
         
         /**
-        * Change the month of currentDate by the previous month
-        * @method previousMonth
-        * @param currentDate
-        * @return date
-        */
+         * Change the month of currentDate by the previous month
+         * @method previousMonth
+         * @param currentDate
+         * @return date
+         */
         function previousMonth (currentDate) {
             reverse = true;
             return animationLeave()
@@ -131,11 +136,11 @@
         }
         
         /**
-        * Change the month of currentDate by the next month
-        * @method nextMonth
-        * @param currentDate
-        * @return date
-        */
+         * Change the month of currentDate by the next month
+         * @method nextMonth
+         * @param currentDate
+         * @return date
+         */
         function nextMonth (currentDate) {
             reverse = false;
             return animationLeave()
@@ -145,11 +150,11 @@
         }
         
         /**
-        * Reset by the current month
-        * @method nextMonth
-        * @param currentDate
-        * @return date
-        */
+         * Reset by the current month
+         * @method nextMonth
+         * @param currentDate
+         * @return date
+         */
         function resetMonth () {
             return moment();
         }
@@ -159,7 +164,7 @@
         var entering = false;
         var leaving = false;
         var animating = false;
-        function animationLeave() {
+        function animationLeave () {
             var deferred = $q.defer();
             $timeout.cancel(timer);
             entering = false;
@@ -181,7 +186,7 @@
             return deferred.promise;
         }
          
-        function animationEnter() {
+        function animationEnter () {
             $timeout.cancel(timer);
             entering = true;
             

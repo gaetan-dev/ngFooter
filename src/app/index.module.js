@@ -1,10 +1,10 @@
 /* global angular */
 (function() {
-  'use strict';
+    'use strict';
 
-  angular
-    .module('footer', ['ngAnimate', 'ngCookies', 'ngTouch', 
-      'ngSanitize', 'ngResource', 'ui.router', 'ui.bootstrap',
-      'duScroll', 'angularModalService', 'chart.js', 'config']);
+    angular
+        .module('footer', ['ngAnimate', 'ngCookies', 'ngTouch', 
+          'ngSanitize', 'ngResource', 'ui.router', 'ui.bootstrap',
+          'duScroll', 'angularModalService', 'chart.js', 'config']);
 
 })();

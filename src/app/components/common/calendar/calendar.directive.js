@@ -7,7 +7,7 @@
         .directive('acmeCalendar', acmeCalendar);
 
     /** @ngInject */
-    function acmeCalendar() {
+    function acmeCalendar () {
         var directive = {
             restrict: 'E',
             templateUrl: 'app/components/common/calendar/calendar.html',

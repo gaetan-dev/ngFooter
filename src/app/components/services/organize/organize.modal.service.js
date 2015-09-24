@@ -17,7 +17,7 @@
 		api.showOrganize = showOrganize;
 		api.initializeOrganizeModalData = initializeOrganizeModalData;
 		
-		// Modal Availabilities
+		
 		function showOrganize () {	
 			initializeOrganizeModalData (function () {
 				ModalService.showModal({
@@ -51,61 +51,62 @@
 				/* Methodes */												
 				$scope.switchViews = switchViews;
 				$scope.initializePlayersAvailabilities = initializePlayersAvailabilities;
+				$scope.close = closeModal;
 				
 				/* Views */
 				$scope.calendar = true;
 				$scope.organize = false;		
 				
 				/**
-				* Action when the user close the modal
-				* @method close
-				* @param result
-				*/
-				$scope.close = function (result) {
+				 * Action when the user close the modal
+				 * @method close
+				 * @param result
+				 */
+				function closeModal (result) {
 					myModalService.closeModal(close, result);
-				};
+				}
 				
 				/**
-				* @method switchViews
-				*/	
+				 * @method switchViews
+				 */	
 				function switchViews () {
 					$scope.calendar = !$scope.calendar;
 					$scope.organize = !$scope.organize;
 				} 
 				
 				/**
-				* @method initializePlayersAvailabilities
-				* @return $promise
-				*/
+				 * @method initializePlayersAvailabilities
+				 * @return $promise {}
+				 */
 				function initializePlayersAvailabilities () {
 					var deferred = $q.defer();
 					
 					$scope.availabilitiesOfDay = calendarService.fetchAvailabilities(availabilities, $scope.date, $scope.hours);
 					
 					var players = [];
-					var players_available = [];
-					var players_perhaps = []; 
-					var players_unknown = []; 
-					var players_unavailable = [];
+					var playersAvailable = [];
+					var playersPerhaps = []; 
+					var playersUnknown = []; 
+					var playersUnavailable = [];
 					
 					for (var i = 0; i < $scope.availabilitiesOfDay.length; i++) {
 						switch ($scope.availabilitiesOfDay[i].mode) {
 							case 'available':
-								players_available.push($scope.availabilitiesOfDay[i].user);
+								playersAvailable.push($scope.availabilitiesOfDay[i].user);
 								break;
 							case 'perhaps':
-								players_perhaps.push($scope.availabilitiesOfDay[i].user);
+								playersPerhaps.push($scope.availabilitiesOfDay[i].user);
 								break;
 							case 'unknown':
-								players_unknown.push($scope.availabilitiesOfDay[i].user);
+								playersUnknown.push($scope.availabilitiesOfDay[i].user);
 								break;
 							case 'unavailable':
-								players_unavailable.push($scope.availabilitiesOfDay[i].user);
+								playersUnavailable.push($scope.availabilitiesOfDay[i].user);
 								break;
 						}
 					}
 					
-					players = [players_available, players_perhaps, players_unknown, players_unavailable];
+					players = [playersAvailable, playersPerhaps, playersUnknown, playersUnavailable];
 					deferred.resolve(players);
 					return deferred.promise;
 				} 			
@@ -113,9 +114,9 @@
 		}
 		
 		/**
-		* @method initializeOrganizeModalData
-		* @param callback()
-		*/
+		 * @method initializeOrganizeModalData
+		 * @param callback()
+		 */
 		function initializeOrganizeModalData (callback) {
 			availabilitiesService.getAvailabilities().then(function (availabilities) {
 				api.availabilities = availabilities;
