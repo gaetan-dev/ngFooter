@@ -34,7 +34,7 @@
         */
         api.findUserIndex = function (array, user) {
             for (var i = 0; i < array.length; i++) {
-                if (array[i].Id === user.Id) {
+                if (array[i].id === user.id) {
                     return i;
                 }
             }
@@ -42,14 +42,26 @@
         }; 
         
         /**
-        * Capitalize the first character of a string
-        * @method findUserIndex
+        * Uppercase the first character of the string
+        * @method uppercaseFirst
         * @param str
         * @return Str
         */
-        api.capitalizeFirstLetter = function (str) {
+        api.uppercaseFirst = function (str) {
             if (str !== null) {
                 return str.charAt(0).toUpperCase() + str.slice(1);
+            }
+        };
+        
+        /**
+        * Lowercase all characters of the string
+        * @method lowercaseAll
+        * @param STR
+        * @return str
+        */
+        api.lowercaseAll = function (str) {
+            if (str !== null) {
+                return str.toLowerCase();
             }
         };
   

@@ -23,7 +23,7 @@
          * @param availability
          */
         function addAvailability (availabilities, availability) {
-            availabilities.push(availability)
+            availabilities.push(availability);
         }
         
         /**
@@ -55,7 +55,7 @@
     	function fetchAvailabilities (availabilities, date, hours) {
             var list = [];
             for (var i = 0; i < availabilities.length; i++) {
-                if (availabilities[i].Date === date && availabilities[i].Hours === hours) {
+                if (availabilities[i].date === date && availabilities[i].hours === hours) {
                     list.push(availabilities[i]);
                 }
             }
@@ -72,7 +72,7 @@
     	function buildUsersOfAvailabilities (availabilities) {
             var users = [];
             for (var i = 0; i < availabilities.length; i++) {
-                users.push(availabilities[i].User);
+                users.push(availabilities[i].user);
             }
             
             return users;
@@ -89,7 +89,7 @@
     	function fetchEvent (events, date, hours) {
             if (events) {
                 for (var i = 0; i < events.length; i++) {
-                    if (events[i].Date === date && events[i].Hours === hours) {
+                    if (events[i].date === date && events[i].hours === hours) {
                         return events[i];
                     }
                 }

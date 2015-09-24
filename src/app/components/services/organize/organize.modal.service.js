@@ -24,8 +24,8 @@
 					templateUrl: 'app/components/services/organize/organize.modal.html',
 					controller: OrganizeModalController,
 					inputs: {
-						availabilities: api.availabilities.Availabilities,
-						events: api.events.Events
+						availabilities: api.availabilities,
+						events: api.events
 					}
 				})
 				.then(function(modal) {
@@ -83,29 +83,29 @@
 					$scope.availabilitiesOfDay = calendarService.fetchAvailabilities(availabilities, $scope.date, $scope.hours);
 					
 					var players = [];
-					var playersAvailable = [];
-					var playersPerhaps = []; 
-					var playersUnknown = []; 
-					var playersUnavailable = [];
+					var players_available = [];
+					var players_perhaps = []; 
+					var players_unknown = []; 
+					var players_unavailable = [];
 					
 					for (var i = 0; i < $scope.availabilitiesOfDay.length; i++) {
-						switch ($scope.availabilitiesOfDay[i].Mode) {
+						switch ($scope.availabilitiesOfDay[i].mode) {
 							case 'available':
-								playersAvailable.push($scope.availabilitiesOfDay[i].User);
+								players_available.push($scope.availabilitiesOfDay[i].user);
 								break;
 							case 'perhaps':
-								playersPerhaps.push($scope.availabilitiesOfDay[i].User);
+								players_perhaps.push($scope.availabilitiesOfDay[i].user);
 								break;
 							case 'unknown':
-								playersUnknown.push($scope.availabilitiesOfDay[i].User);
+								players_unknown.push($scope.availabilitiesOfDay[i].user);
 								break;
 							case 'unavailable':
-								playersUnavailable.push($scope.availabilitiesOfDay[i].User);
+								players_unavailable.push($scope.availabilitiesOfDay[i].user);
 								break;
 						}
 					}
 					
-					players = [playersAvailable, playersPerhaps, playersUnknown, playersUnavailable];
+					players = [players_available, players_perhaps, players_unknown, players_unavailable];
 					deferred.resolve(players);
 					return deferred.promise;
 				} 			
@@ -113,13 +113,13 @@
 		}
 		
 		/**
-		* @method initializePlayersAvailabilities
+		* @method initializeOrganizeModalData
 		* @param callback()
 		*/
 		function initializeOrganizeModalData (callback) {
 			availabilitiesService.getAvailabilities().then(function (availabilities) {
 				api.availabilities = availabilities;
-				eventsService.getUserEvents($rootScope.user.Id).then(function (events) {
+				eventsService.getEvents().then(function (events) {
 					api.events = events;
 					callback();
 				});

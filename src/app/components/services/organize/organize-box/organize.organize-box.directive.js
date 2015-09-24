@@ -25,14 +25,15 @@
             
             /* Variables */
             vm.query = "";
-            vm.playersAvailable = [];
-            vm.playersPerhaps = [];
-            vm.playersUnknown = [];
-            vm.playersUnavailable = [];
+            vm.players_available = [];
+            vm.players_perhaps = [];
+            vm.players_unknown = [];
+            vm.players_unavailable = [];
             vm.selected = [];
             
             vm.date = "";
             vm.hours = "";
+            vm.private = false;
             vm.citadium = 'Urban Foot';
             
             /* Methodes */         
@@ -52,7 +53,6 @@
                                  
             /* Initialize */
             // Go to /* Watcher */
-           
             
             /**
             * Action when the user click on the user in the selection-box
@@ -103,7 +103,7 @@
             * @method onCreateClick
             */ 
             function onCreateClick () {
-                eventsService.createEvent(vm.date, vm.hours, 'match', vm.selected).then(function () {
+                eventsService.createEvent(vm.date, vm.hours, 'match', vm.private, vm.selected).then(function () {
                     organizeModalService.initializeOrganizeModalData(function() {
                         $scope.$parent.switchViews();
                         exitSelect();
@@ -126,8 +126,8 @@
             * @method onRandomClick
             */
             function onRandomClick () {
-                var list = angular.copy(vm.playersAvailable);
-                var index = toolsService.findUserIndex(vm.playersAvailable, $rootScope.user);
+                var list = angular.copy(vm.players_available);
+                var index = toolsService.findUserIndex(vm.players_available, $rootScope.user);
                 vm.selected = [list.splice(index, 1)[0]];
                 while (vm.selected.length < 10 && list.length > 0) {
                     index = Math.floor(Math.random() * list.length);
@@ -142,8 +142,8 @@
             * @param user
             */
             function search (user) {
-                return  user.Name.match(toolsService.capitalizeFirstLetter(vm.query)) !== null ||
-                        user.FirstName.match(toolsService.capitalizeFirstLetter(vm.query)) !== null;
+                return  user.lastName.match(toolsService.lowercaseAll(vm.query)) !== null ||
+                        user.firstName.match(toolsService.lowercaseAll(vm.query)) !== null;
             }
             
             /**
@@ -192,10 +192,10 @@
             $scope.$parent.$watch('organize', function(organize) {
                 if (organize) { 
                     $scope.$parent.initializePlayersAvailabilities().then(function (players) {
-                        vm.playersAvailable = players[0];
-                        vm.playersPerhaps = players[1];
-                        vm.playersUnknown = players[2];
-                        vm.playersUnavailable = players[3];
+                        vm.players_available = players[0];
+                        vm.players_perhaps = players[1];
+                        vm.players_unknown = players[2];
+                        vm.players_unavailable = players[3];
                     });
                     
                     vm.date = $scope.$parent.date;

@@ -6,7 +6,7 @@
 		.service('eventsService', eventsService); 
       
     /** @ngInject */  
-    function eventsService($q, $http, $timeout, ENV) {
+    function eventsService($rootScope, $q, $http, $timeout, ENV) {
         var api = this;   
                
         /**
@@ -16,7 +16,7 @@
          * @return events
          */ 
         api.getEvents = function () {
-            return $http.get(ENV.api.EVENTS_URL)
+            return $http.get(ENV.api.EVENT_URL)
                 .then(function (response) {
                     return response.data; 
                 }); 
@@ -29,8 +29,8 @@
          * @param userId
          * @return events
          */ 
-        api.getUserEvents = function (userId) {
-            return $http.get(ENV.api.EVENTS_URL + userId)
+        api.getUserEvents = function (user_id) {
+            return $http.get(ENV.api.EVENT_URL + '?user_id=' + user_id)
                 .then(function (response) {
                     return response.data; 
                 }); 
@@ -43,12 +43,14 @@
          * @param id
          * @return 
          */
-        api.createEvent = function (date, hours, mode, users) {
-            return $http.post(ENV.api.EVENTS_URL, {
-                Date: date,
-                Hours: hours,
-                Mode: mode,
-                Users: users
+        api.createEvent = function (date, hours, mode, prvt, users) {
+            return $http.post(ENV.api.EVENT_URL, {
+                date: date,
+                hours: hours,
+                mode: mode,
+                'private': prvt,
+                master: $rootScope.user.id,
+                users: users
             });
         };
         
@@ -60,7 +62,7 @@
          * @return $http
          */
         api.updateEvents = function (events) {
-            return $http.put(ENV.api.EVENTS_URL, events);
+            return $http.put(ENV.api.EVENT_URL, events);
         };
         
         /**
@@ -72,7 +74,7 @@
          * @return $http
          */
         api.updateEvent = function (id, mode) {
-            return $http.put(ENV.api.EVENTS_URL, {
+            return $http.put(ENV.api.EVENT_URL, {
                 Id: id,
                 Mode: mode,
             });

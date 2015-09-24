@@ -46,9 +46,9 @@
 		<div class="players-box" ng-class="{ hidden : !vm.select }" >
 			<div class="row availabilitiesPlayers">
 				<div>
-					<h4>Joueur(s) disponible(s) ({{playersAvailableFiltered.length}})
+					<h4>Joueur(s) disponible(s) ({{ players_available_filtered.length }})
 				</div>				
-				<div class="col-sm-2 player" ng-repeat="user in playersAvailableFiltered = (vm.playersAvailable | filter: vm.search) track by $index" 
+				<div class="col-sm-2 player" ng-repeat="user in players_available_filtered = (vm.players_available | filter: vm.search) track by $index" 
 					ng-class="{'col-sm-offset-1' : $index %5 === 0}" >		
 					<div ng-click="vm.onUserClick(user)" class="team-member" ng-class="vm.isSelected(user) ? 'selected' : 'no-selected'">
 						<div class="team-box">
@@ -56,15 +56,15 @@
 								<img src="../../../assets/images/team/profil.jpg" class="img-responsive img-circle" alt="">							
 							</div>
 						</div>
-						<h4 class="player-name">{{user.Name}} {{user.FirstName}}</h4>
+						<h4 class="player-name">{{user.lastName}} {{user.firstName}}</h4>
 					</div>
 				</div>
 			</div>		
 			<div class="row availabilitiesPlayers">
 				<div>
-					<h4>Joueur(s) incertain(s) ({{playersPerhapsFiltered.length}})
+					<h4>Joueur(s) incertain(s) ({{ players_perhaps_filtered.length }})
 				</div>
-				<div class="col-sm-2 player" ng-repeat="user in playersPerhapsFiltered = (vm.playersPerhaps | filter: vm.search) track by $index" 
+				<div class="col-sm-2 player" ng-repeat="user in players_perhaps_filtered = (vm.players_perhaps | filter: vm.search) track by $index" 
 					ng-class="{'col-sm-offset-1' : $index %5 === 0}" >			
 					<div ng-click="vm.onUserClick(user)" class="team-member" ng-class="vm.isSelected(user) ? 'selected' : 'no-selected'">
 						<div class="team-box">
@@ -72,15 +72,15 @@
 								<img src="../../../assets/images/team/profil.jpg" class="img-responsive img-circle" alt="">							
 							</div>
 						</div>
-						<h4 class="player-name">{{user.Name}} {{user.FirstName}}</h4>
+						<h4 class="player-name">{{user.lastName}} {{user.firstName}}</h4>
 					</div>
 				</div>
 			</div>
 			<div class="row availabilitiesPlayers">
 				<div>
-					<h4>Joueur(s) non renseigné(s) ({{playersUnknownFiltered.length}})
+					<h4>Joueur(s) non renseigné(s) ({{ players_unknown_filtered.length }})
 				</div>
-				<div class="col-sm-2 player" ng-repeat="user in playersUnknownFiltered = (vm.playersUnknown | filter: vm.search) track by $index" 
+				<div class="col-sm-2 player" ng-repeat="user in players_unknown_filtered = (vm.players_unknown | filter: vm.search) track by $index" 
 					ng-class="{'col-sm-offset-1' : $index %5 === 0}" >	
 					<div ng-click="vm.onUserClick(user)" class="team-member" ng-class="vm.isSelected(user) ? 'selected' : 'no-selected'">
 						<div class="team-box">
@@ -88,15 +88,15 @@
 								<img src="../../../assets/images/team/profil.jpg" class="img-responsive img-circle" alt="">							
 							</div>
 						</div>
-						<h4 class="player-name">{{user.Name}} {{user.FirstName}}</h4>
+						<h4 class="player-name">{{user.lastName}} {{user.firstName}}</h4>
 					</div>
 				</div>
 			</div>
 			<div class="row availabilitiesPlayers">
 				<div>
-					<h4>Joueur(s) indisponible(s) ({{playersUnavailableFiltered.length}})
+					<h4>Joueur(s) indisponible(s) ({{ players_unavailable_filtered.length }})
 				</div>
-				<div class="col-sm-2 player" ng-repeat="user in playersUnavailableFiltered = (vm.playersUnavailable | filter: vm.search) track by $index" 
+				<div class="col-sm-2 player" ng-repeat="user in players_unavailable_filtered = (vm.players_unavailable | filter: vm.search) track by $index" 
 					ng-class="{'col-sm-offset-1' : $index %5 === 0}" >			
 					<div ng-click="vm.onUserClick(user)" class="team-member" ng-class="vm.isSelected(user) ? 'selected' : 'no-selected'">
 						<div class="team-box">
@@ -104,7 +104,7 @@
 								<img src="../../../assets/images/team/profil.jpg" class="img-responsive img-circle" alt="">							
 							</div>
 						</div>
-						<h4 class="player-name">{{user.Name}} {{user.FirstName}}</h4>
+						<h4 class="player-name">{{user.lastName}} {{user.firstName}}</h4>
 					</div>
 				</div>
 			</div>
@@ -118,7 +118,7 @@
 							<img src="../../../assets/images/team/profil.jpg" class="img-responsive img-circle" alt="">							
 						</div>
 					</div>
-					<h4 class="player-name">{{user.Name}} {{user.FirstName}}</h4>
+					<h4 class="player-name">{{user.lastName}} {{user.firstName}}</h4>
 				</div>
 			</div>
 		</div>		

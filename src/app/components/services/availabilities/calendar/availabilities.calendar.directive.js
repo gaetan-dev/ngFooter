@@ -24,8 +24,8 @@
                     scope.WEEK_DAYS = moment.weekdaysMin();
                     // Remove Saturday and Sunday
                     scope.WEEK_DAYS.pop();
-                    scope.WEEK_DAYS.shift();                  
-                       
+                    scope.WEEK_DAYS.shift();  
+                                   
                     /**
                      * Update the calendar's header and calendar's datas 
                      * @method updateCalendar
@@ -88,17 +88,17 @@
                             scope.currentDate = currentDate;
                             scope.updateCalendar();
                         });
-                    };
-            
+                    };  
+                    
                     // Watchers
-                    scope.$watchCollection('availabilities', scope.updateCalendar);
+                    scope.$watchCollection('availabilities', scope.updateCalendar);    
                 }
             };
                 
             return directive;
             
             /** @ngInject */
-            function CalendarController($rootScope, $scope, calendarService, availabilitiesService, toolsService) {
+            function CalendarController($rootScope, $scope, calendarService, availabilitiesService) {
                 var vm = this;
                
                /* Variables */

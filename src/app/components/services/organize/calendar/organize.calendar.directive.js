@@ -20,6 +20,8 @@
             link:     
                 function postLink(scope) {  
                     
+                    console.log(scope.events);
+                    
                     /* Variables */
                     var numberOfHours = 3;                                  
                     scope.currentDate = moment();                  
@@ -90,21 +92,21 @@
                         for (i = 0; i < numberOfHours; i++) {
                             availables[i] = 0;
                         }
-                        
+
                         for (i = 0; i < availabilities.length; i++) {
-                            switch(availabilities[i].Hours) {
+                            switch(availabilities[i].hours) {
                                 case '18:00':
-                                    if (availabilities[i].Mode === 'available') {
+                                    if (availabilities[i].mode === 'available') {
                                         availables[0]++;
                                     } 
                                     break;
                                 case '18:30':
-                                    if (availabilities[i].Mode === 'available') {
+                                    if (availabilities[i].mode === 'available') {
                                         availables[1]++;
                                     } 
                                     break;
                                 case '19:00':
-                                    if (availabilities[i].Mode === 'available') {
+                                    if (availabilities[i].mode === 'available') {
                                         availables[2]++;
                                     } 
                                     break;

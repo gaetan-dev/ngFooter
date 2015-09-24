@@ -12,13 +12,13 @@
 		// Modal Availabilities
 		api.showAvailabilities = function() {
 			availabilitiesService.getUserAvailabilities($rootScope.user.id).then(function (availabilities) {
-				// eventsService.getUserEvents($rootScope.user).then(function (events) {
+				eventsService.getUserEvents($rootScope.user.id).then(function (events) {
 					ModalService.showModal({
 						templateUrl: 'app/components/services/availabilities/availabilities.modal.html',
 						controller: AvailabilitiesModalController,
 						inputs: {
 							availabilities: availabilities,
-							events: events.Events
+							events: events
 						}
 					})
 					.then(function(modal) {
@@ -26,7 +26,7 @@
 						modal.close.then(function() {
 						});
 					});
-				// });
+				});
 			});			
 	
 			function AvailabilitiesModalController ($scope, $state, myModalService, close, availabilities, events) {
