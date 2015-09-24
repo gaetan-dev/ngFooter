@@ -38,11 +38,11 @@ Authentication => OK
 
 Services:
 
-    Availabilities => OK
+  Availabilities => OK
     
-    Events => OK
+  Events => OK
     
-    Monitoring match => NO
+  Monitoring match => NO
     
 Event => NO
 
