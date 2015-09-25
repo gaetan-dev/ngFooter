@@ -32,6 +32,8 @@ $ gulp serve config --env=dev
 ```
 
 ## TODO
+### Main
+
 Login / Logout => OK
 
 Authentication => OK
@@ -49,6 +51,12 @@ Event => NO
 Players => NO
 
 Contact => NO
+
+### Optionnal
+
+Loader => NO
+
+Notification => NO
 
 ## Security
 ### Authentication
@@ -68,8 +76,3 @@ function config($logProvider, toastr, $httpProvider) {
 ### Authorization
 
 [Stackoverflow: angular ui-router login authentication](http://stackoverflow.com/questions/22537311/angular-ui-router-login-authentication)
-
-
-
-
-
