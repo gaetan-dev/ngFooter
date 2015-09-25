@@ -98,7 +98,8 @@
                   roles: 'User'
                 })
                   .then(function (response) {
-                      authentication(response.email, response.password);
+                      $rootScope.user = response;
+                    closeViews();
                   });
             }
       
@@ -134,7 +135,10 @@
             function closeViews () {
                 vm.register = false;
                 vm.login = false;
-                vm.warning = '';
+                vm.firstName = '';
+                vm.lastName = '';
+                vm.password = '';
+                vm.warning = '';     
                 
                 $scope.$parent.vm.registerOrLogin = (!vm.register && !vm.login) ? false : true;
             } 
