@@ -164,11 +164,12 @@
         return directive;
         
         /** @ngInject */
-        function OrganizeCalendarController($rootScope, $scope) {
+        function OrganizeCalendarController($rootScope, $scope, calendarService) {
             var vm = this;     
             
             /* Variables */  
             vm.availabilities = $scope.availabilities;
+            vm.events = $scope.events;
             
             /* Methodes */
             vm.onCaseClick = onCaseClick;
@@ -182,9 +183,13 @@
             */
             function onCaseClick (date, hours) {  
                 // If it's a date in the past, do nothing
-                if (date.isBefore()) { return; }
-                
+                if (date.isBefore() && !date.isSame(moment(), 'day')) { return; }
+
                 date = date.toISOString().substring(0, 10);
+                var event = calendarService.fetchEvent(vm.events, date, hours);
+
+                if (event) { return; }
+                
                 $scope.$parent.date = date;
                 $scope.$parent.hours = hours;
                 

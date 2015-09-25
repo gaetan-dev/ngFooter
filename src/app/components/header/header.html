@@ -1,17 +1,15 @@
 <header id="header">
     <div class="header-content">
         <div class="intro-text">
-            <video autoplay loop muted id="bgvid">
+            <!--<video autoplay loop muted id="bgvid">
                 <source src="./assets/videos/Nike Secret Tournament campaign - 2002 FULL HD 60FPS.mp4" type="video/mp4">
-            </video>
+            </video>-->
             <!--<div class="intro-lead-in">Bienvenue sur Footer!</div>-->
             <div ng-class="{ translateY : !$root.user }">
                 <div class="intro-lead-in" ng-show="$root.user">Bonjour {{ $root.user.lastName }},</div>
                 <div class="intro-heading">Bienvenue sur Footer</div>
-            </div>
-            <!--<a href="" class="page-scroll btn btn-xl" ng-click="">Connexion</a>
-            <a href="" class="page-scroll btn btn-xl" ng-click="vm.onLoginClick()">Inscription</a>-->         
-                <acme-authentication class="auth">
+            </div>  
+            <acme-authentication class="auth">
         </div>
     </div>
 </header>
