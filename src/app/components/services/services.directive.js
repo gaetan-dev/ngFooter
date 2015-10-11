@@ -20,12 +20,13 @@
         return directive;
         
         /** @ngInject */
-        function ServicesController(availabilitiesModalService, organizeModalService) {
+        function ServicesController(availabilitiesModalService, organizeModalService, matchesModalService) {
             var vm = this;
             
             /* Methodes */
             vm.clickOnAvailabilities = clickOnAvailabilities;
             vm.clickOnOrganize = clickOnOrganize;
+            vm.clickOnMatches = clickOnMatches;
             
             /**
              * Action when the user click on the availabilities button
@@ -43,6 +44,15 @@
               */ 
             function clickOnOrganize () {
                 organizeModalService.showOrganize();
+            }
+            
+            /**
+              * Action when the user click on the matches button
+              * Show the organize modal
+              * @method clickOnMatches
+              */ 
+            function clickOnMatches () {
+                matchesModalService.showMatches();
             }
         }
     }

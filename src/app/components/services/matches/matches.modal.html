@@ -1,0 +1,32 @@
+<div class="my-modal modal" id="matchesModal" tabindex="-1" role="dialog" 
+    ng-click="close()" data-dismiss="modal" aria-hidden="true">
+    <div class="modal-content" ng-click="$event.stopPropagation()">
+        <div class="close-modal" ng-click="close()" data-dismiss="modal" aria-hidden="true">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="modal-body">
+                <h2>Votre suivi des matchs</h2>
+                <div class="matches-content">
+                    <div class="our-matches-body col-sm-3">
+                        <h3>Vos matchs</h3>
+                        <div class="matches" ng-repeat="event in events">
+                            <acme-card-u-i event="event"/>
+                        </div>   
+                    </div>
+                    <div class="match-tooltip col-sm-6">
+                    </div>
+                    <div class="other-matches-body col-sm-3">
+                        <h3>Autres matches</h3>
+                        <div class="matches" ng-repeat="event in events">
+                            <acme-card-u-i event="event"/>
+                        </div>   
+                    </div>
+                <div>
+            </div>
+        </div>
+    </div>
+</div>
