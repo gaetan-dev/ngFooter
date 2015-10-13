@@ -6,8 +6,7 @@
         .controller('MainController', MainController);
     
     /** @ngInject */
-    function MainController($rootScope, identity) {
-        
+    function MainController($rootScope, identity) {     
         /* Variables */
         $rootScope.user = identity;
     }

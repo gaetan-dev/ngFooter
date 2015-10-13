@@ -190,14 +190,14 @@
 
                 if (event) { return; }
                 
-                $scope.$parent.date = date;
-                $scope.$parent.hours = hours;
+                $scope.$parent.vm.date = date;
+                $scope.$parent.vm.hours = hours;
                 
                 switchViews();            
             }
                     
             function switchViews() {
-                $scope.$parent.switchViews();
+                $scope.$parent.vm.switchViews();
             }  
         }       
     }

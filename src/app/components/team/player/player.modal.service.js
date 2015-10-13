@@ -24,7 +24,7 @@
 					modal.element.show(500);
 					modal.close.then(function() {
 				});
-			});		
+			});	
 	
 			function PlayerModalController ($scope, myModalService, close, player) {
 				/* Open */
@@ -44,7 +44,7 @@
 				 */
 				function closeModal (result) {
 					myModalService.closeModal(close, result);
-				};
+				}
 				
 				/* Graph Matches */
 				$scope.labels_matches = ["Victoire(s)", "Défaite(s)"];
@@ -117,7 +117,7 @@
 					showScale: true,
 				};
 			}    
-		};
+		}
 		
 		return api;
 	}

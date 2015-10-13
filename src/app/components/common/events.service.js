@@ -51,11 +51,12 @@
          * @param id
          * @return event {}
          */
-        function createEvent (date, hours, mode, prvt, users) {
+        function createEvent (date, hours, mode, place, prvt, users) {
             return $http.post(ENV.api.EVENT_URL, {
                 date: date,
                 hours: hours,
                 mode: mode,
+                place: place,
                 'private': prvt,
                 master: $rootScope.user.id,
                 users: users

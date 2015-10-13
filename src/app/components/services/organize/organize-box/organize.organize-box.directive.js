@@ -11,7 +11,7 @@
         var directive = {
             restrict: 'E',
             templateUrl: 'app/components/services/organize/organize-box/organize.organize-box.html',
-            controller: acmeOrganizeOrganizeBoxController,
+            controller: OrganizeOrganizeBoxController,
             controllerAs: 'vm',
             scope: {
             }
@@ -20,8 +20,10 @@
         return directive;
         
         /** @ngInject */
-        function acmeOrganizeOrganizeBoxController($rootScope, $scope, organizeModalService, toolsService, eventsService) {
-            var vm = this;           
+        function OrganizeOrganizeBoxController($rootScope, $scope, organizeModalService, toolsService, eventsService) {
+            var vm = this;  
+            
+            $scope.test = 'test';         
             
             /* Variables */
             vm.query = "";
@@ -34,7 +36,7 @@
             vm.date = "";
             vm.hours = "";
             vm.private = false;
-            vm.citadium = 'Urban Foot';
+            vm.place = 'Urban Foot';
             
             /* Methodes */         
             vm.onUserClick = onUserClick;
@@ -46,7 +48,7 @@
             vm.onRandomClick = onRandomClick;
             vm.search = search;
             vm.isSelected = isSelected;
-                                   
+
             /* Views */
             vm.select = true;
             vm.create = false;    
@@ -83,7 +85,7 @@
              */   
             function onCancelClick () {
                 exitSelect();
-                $scope.$parent.switchViews();
+                $scope.$parent.vm.switchViews();
             }
             
             /**
@@ -103,10 +105,10 @@
              * @method onCreateClick
             */ 
             function onCreateClick () {
-                eventsService.createEvent(vm.date, vm.hours, 'match', vm.private, vm.selected).then(function (event) {
-                    $scope.$parent.events.push(event);
+                eventsService.createEvent(vm.date, vm.hours, 'match', vm.place, vm.private, vm.selected).then(function (event) {
+                    $scope.$parent.vm.events.push(event);
                     organizeModalService.initializeOrganizeModalData(function() {
-                        $scope.$parent.switchViews();
+                        $scope.$parent.vm.switchViews();
                         exitSelect();
                     });    
                 });
@@ -195,17 +197,17 @@
             }
             
             /* Watcher */
-            $scope.$parent.$watch('organize', function(organize) {
+            $scope.$parent.$watch('vm.organize', function(organize) {
                 if (organize) { 
-                    $scope.$parent.initializePlayersAvailabilities().then(function (players) {
+                    $scope.$parent.vm.initializePlayersAvailabilities().then(function (players) {
                         vm.players_available = players[0];
                         vm.players_perhaps = players[1];
                         vm.players_unknown = players[2];
                         vm.players_unavailable = players[3];
                     });
                     
-                    vm.date = $scope.$parent.date;
-                    vm.hours = $scope.$parent.hours;
+                    vm.date = $scope.$parent.vm.date;
+                    vm.hours = $scope.$parent.vm.hours;
                 }    
             });       
         }

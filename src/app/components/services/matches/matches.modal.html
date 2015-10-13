@@ -11,17 +11,8 @@
             <div class="modal-body">
                 <h2>Votre suivi des matchs</h2>
                 <div class="matches-content">
-                    <div class="our-matches-body col-sm-3">
-                        <h3>Vos matchs</h3>
-                        <div class="matches" ng-repeat="event in events">
-                            <acme-card-u-i event="event"/>
-                        </div>   
-                    </div>
-                    <div class="match-tooltip col-sm-6">
-                    </div>
-                    <div class="other-matches-body col-sm-3">
-                        <h3>Autres matches</h3>
-                        <div class="matches" ng-repeat="event in events">
+                    <div class="our-matches-body">
+                        <div class="matches col-sm-3" ng-repeat="event in events">
                             <acme-card-u-i event="event"/>
                         </div>   
                     </div>

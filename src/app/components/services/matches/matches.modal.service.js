@@ -13,7 +13,8 @@
 		api.showMatches = showMatches;
 
 		function showMatches () {
-			eventsService.getUserEvents($rootScope.user.id).then(function (events) {
+			// eventsService.getUserEvents($rootScope.user.id).then(function (events) {
+			eventsService.getEvents().then(function (events) {
 				ModalService.showModal({
 					templateUrl: 'app/components/services/matches/matches.modal.html',
 					controller: MatchesModalController,
@@ -34,6 +35,7 @@
 	
 				/* Variables */
 				$scope.events = events;
+				events.sort(compare);
 				
 				/* Methodes */
 				$scope.close = closeModal;
@@ -49,7 +51,7 @@
 				}
 				
 				function compare (event1, event2) {
-					if (event1.date == event2.date) {
+					if (event1.date === event2.date) {
 						if (event1.hours < event2.hours) { return 1; }
 						if (event1.hours > event2.hours) { return -1; }
 					}
@@ -57,8 +59,6 @@
 					
 					return -1;
 				}
-				
-				console.log(events.sort(compare));
 			}
 		}
 		

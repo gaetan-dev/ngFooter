@@ -1,6 +1,6 @@
 {
     "ENV": {
-        "name": "dev",
+        "name": "local",
         "api": {
             "URL": "http://localhost:1337/",
             "USER_URL": "http://localhost:1337/user/",
