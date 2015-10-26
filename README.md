@@ -28,7 +28,7 @@ $ gulp serve stubby config --env=mock
 ### Connect with the footer API database
 
 ```sh
-$ gulp serve config --env=dev
+$ gulp serve config --env=local
 ```
 
 ## TODO

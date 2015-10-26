@@ -5,8 +5,9 @@
     describe('Service: OrganizeModalService', function () {
         
         /* Variables */
-		var rootScope;
+		var $rootScope;
 		var $httpBackend;
+		var $compile;
 		var service;
 		
 		/* Methodes Mock*/
@@ -33,10 +34,11 @@
 			$provide.value('eventsService', eventsServiceMock);
         }));
 		
-		beforeEach(inject (function ($rootScope, $q, _organizeModalService_, _$httpBackend_, ENV) {
+		beforeEach(inject (function (_$rootScope_, $q, _$httpBackend_, _$compile_, _organizeModalService_, ENV) {
 			/* Init Variables */			
-			rootScope = $rootScope;
+			$rootScope = _$rootScope_;
 			$httpBackend = _$httpBackend_;
+			$compile = _$compile_;
 			$httpBackend.when('GET', ENV.api.URL + 'auth/').respond({ id: 1});
 			service = _organizeModalService_;
 			
@@ -61,8 +63,12 @@
             expect(service.availabilities.length).toBe(0);
 			$httpBackend.flush();
 			service.initializeOrganizeModalData(function() {});
-			rootScope.$digest();
+			$rootScope.$digest();
 			expect(service.availabilities.length).toBe(3);
-        });
+        }); 
+		
+		it('should show organize-modal', function () {
+			
+		});
     });
 })();

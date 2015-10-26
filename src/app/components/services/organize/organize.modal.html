@@ -1,22 +1,21 @@
-<div class="my-modal modal" id="organizeModal" tabindex="-1" role="dialog" 
-    ng-click="close()" data-dismiss="modal" aria-hidden="true">
-    <div class="modal-content" ng-click="$event.stopPropagation()">
-        <div class="close-modal" ng-click="vm.close()" data-dismiss="modal" aria-hidden="true">
-            <div class="lr">
-                <div class="rl">
-                </div>
-            </div>
+<div class="my-modal modal" id="organizeModal" tabindex="-1" role="dialog" ng-click="close()" data-dismiss="modal" aria-hidden="true">
+  <div class="modal-content" ng-click="$event.stopPropagation()">
+    <div class="close-modal" ng-click="vm.close()" data-dismiss="modal" aria-hidden="true">
+      <div class="lr">
+        <div class="rl">
         </div>
-        <div class="container">
-            <div class="modal-body" id="organize-calendar">
-                <div class="calendar" ng-class="{ hidden : !vm.calendar }">
-                    <h2>Organiser un match</h2>
-                    <acme-organize-calendar availabilities="vm.availabilitiesCopy" events="vm.events"/>
-                </div> 
-                <div class="organize-box" ng-class="{ hidden : !vm.organize }">
-                    <acme-organize-organize-box players="vm.players"/>
-                </div>     
-            </div>    
-        </div>
+      </div>
     </div>
+    <div class="container">
+      <div class="modal-body" id="organize-calendar">
+        <div class="calendar" ng-class="{ hidden : !vm.calendar }">
+          <h2>Organiser un match</h2>
+          <acme-organize-calendar availabilities="vm.availabilitiesCopy" events="vm.events" />
+        </div>
+        <div class="organize-box" ng-class="{ hidden : !vm.organize }">
+          <acme-organize-organize-box players="vm.players" />
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,7 +1,7 @@
 <article class="card">
   <header class="card__thumb">
     <a>
-      <img src="/assets/images/cardUI.jpeg">
+      <img src="../assets/images/cardUI.jpeg">
     </a>
   </header>
   <div class="card__date">
@@ -11,10 +11,10 @@
   <div class="card__body">
     <div class="card__category"><a href="">Match</a></div>
     <div class="card__title"><a href="">Au {{ vm.event.place }}<br />à {{ vm.event.hours }}</a></dv>
-    <div class="card__subtitle">{{ vm.event.master.lastName }} {{ vm.event.master.firstName }}</div>
-  </div>
-  <footer class="card__footer">
-    <span class="icon icon--time"></span>{{ vm.event.users.length}} joueur(s)
-    <span class="icon icon--comment"></span><a href="">0 comment(s)</a>
-  </footer>
+      <div class="card__subtitle">{{ vm.event.master.lastName }} {{ vm.event.master.firstName }}</div>
+    </div>
+    <footer class="card__footer">
+      <span class="icon icon--time"></span>{{ vm.event.users.length}} joueur(s)
+      <span class="icon icon--comment"></span><a href="">0 comment(s)</a>
+    </footer>
 </article>

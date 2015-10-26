@@ -39,15 +39,11 @@ gulp.task('html', ['inject', 'partials'], function () {
   var assets;
 
   return gulp.src(path.join(conf.paths.tmp, '/serve/*.html'))
-    .pipe($.debug({title: 'After SRC'}))
     .pipe($.inject(partialsInjectFile, partialsInjectOptions))
-    .pipe($.debug({title: 'After inject'}))
     .pipe(assets = $.useref.assets())
     .pipe($.rev())
-    .pipe($.debug({title: 'After rev'}))
     .pipe(jsFilter)
     .pipe($.ngAnnotate())
-    .pipe($.debug({title: 'after annotate'}))
     .pipe($.uglify({ preserveComments: $.uglifySaveLicense , mangle: false})).on('error', conf.errorHandler('Uglify'))
     .pipe(jsFilter.restore())
     .pipe(cssFilter)

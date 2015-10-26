@@ -1,56 +1,56 @@
-<div class="form login" ng-class="[{hidden : $root.user}, { active : !$root.user }]">                   
+<div class="form login" ng-class="[{hidden : $root.user}, { active : !$root.user }]">
 	<ul class="tab-group">
 		<li class="tab" ng-class="[{ hidden : $root.user }, { active : vm.register}]">
 			<a ng-click="vm.onRegisterClick()">S'inscire</a>
 		</li>
 		<li class="tab" ng-class="[{ hidden : $root.user }, { active : vm.login}]">
 			<a ng-click="vm.onLoginClick()">Se connecter</a>
-		</li>		
-	</ul>	                          
+		</li>
+	</ul>
 	<div class="tab-content">
-		<div id="signup" ng-class="{ hidden : !vm.register }">   
-			<h1>Inscrivez-vous</h1>                    
-			<form>                     
+		<div id="signup" ng-class="{ hidden : !vm.register }">
+			<h1>Inscrivez-vous</h1>
+			<form>
 				<div class="top-row">
 					<div class="field-wrap">
 						<label ng-class="{ active : vm.firstName.length > 0 }">
 							Nom
 							<span class="req">*</span>
 						</label>
-						<input type="text" required autocomplete="off" ng-model="vm.firstName"/>
+						<input type="text" required autocomplete="off" ng-model="vm.firstName" />
 					</div>
-				
+
 					<div class="field-wrap">
 						<label ng-class="{ active : vm.lastName.length > 0 }">
 							Prenom
 							<span class="req">*</span>
 						</label>
-						<input type="text" required autocomplete="off" ng-model="vm.lastName"/>
+						<input type="text" required autocomplete="off" ng-model="vm.lastName" />
 					</div>
 				</div>
-		
+
 				<div class="field-wrap">
 					<label ng-class="{ active : vm.email.length > 0 }">
 						Email
 						<span class="req">*</span>
 					</label>
-					<input type="text" required autocomplete="off" ng-model="vm.email"/>
+					<input type="text" required autocomplete="off" ng-model="vm.email" />
 				</div>
-								
+
 				<div class="field-wrap">
 					<label ng-class="{ active : vm.password.length > 0 }">
 						Password
 						<span class="req">*</span>
 					</label>
-					<input type="password" required autocomplete="off" ng-model="vm.password"/>
+					<input type="password" required autocomplete="off" ng-model="vm.password" />
 				</div>
-				
-				<button type="submit" class="button button-block" ng-click="vm.onSendRegisterClick()">Envoyer</button>                           
+
+				<button type="submit" class="button button-block" ng-click="vm.onSendRegisterClick()">Envoyer</button>
 			</form>
 		</div>
-		
-		<div id="login" ng-class="{ hidden : !vm.login }">   
-			<h1>Connectez-vous</h1>                   
+
+		<div id="login" ng-class="{ hidden : !vm.login }">
+			<h1>Connectez-vous</h1>
 			<form>
 				<div class="field-wrap">
 					<label ng-class="{ active : vm.email.length > 0 }">
@@ -59,24 +59,23 @@
 					</label>
 					<input type="text" required autocomplete="off" ng-model="vm.email" />
 				</div>
-			
+
 				<div class="field-wrap">
 					<label ng-class="{ active : vm.password.length > 0 }">
 						Mot de passe
 						<span class="req">*</span>
 					</label>
-					<input type="password" required autocomplete="off" ng-model="vm.password"/>
-				</div>        
+					<input type="password" required autocomplete="off" ng-model="vm.password" />
+				</div>
 				<p class="forgot"><a href="#">Mot de passe oublié?</a></p>
-				<button class="button button-block" ng-click="vm.onSendLoginClick()">Envoyer</button>                    
-			</form>           
-		</div>        
+				<button class="button button-block" ng-click="vm.onSendLoginClick()">Envoyer</button>
+			</form>
+		</div>
 	</div>
 	<div class="warning">
 		{{ vm.warning }}
 	</div>
 </div>
 <div class="logout">
-	<button type="button" class="button button-block" ng-click="vm.onLogoutClick()"
-			ng-class="{ hidden : !$root.user }">Se déconnecter</button> 
+	<button type="button" class="button button-block" ng-click="vm.onLogoutClick()" ng-class="{ hidden : !$root.user }">Se déconnecter</button>
 </div>

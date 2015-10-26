@@ -1,42 +1,39 @@
 <div class="row calendar-content">
-    <div class="col-sm-offset-1 heading-group row">
-        <h3>{{ displayedDate }}</h3>
-        <span class="prev-month glyphicon glyphicon-chevron-left"  ng-click="previousMonth()">
-        </span>      
-        <span class="next-month glyphicon glyphicon-chevron-right"  ng-click="nextMonth()">
-        </span>
-    </div>
-    
-    <div class="fc-calendar noselect" ng-repeat="day in calendarData track by $index">
-        <div class="col-sm-2 fc-day" ng-class="[{'col-sm-offset-1' : $index %5 === 0}, day.classes]">
-            <div class="fc-head" ng-class="$index %5 === 0 ? 'fc-first-day' : 'fc-other-day'">
-                <p>{{ day.date.format('ddd') }}. {{ day.date.format('D') }}<p>
-            </div>
-            <div class="fc-body">
-                <div class="fc-line">
-                    <div class="fc-block">
-                    <p>18:00</p>
-                    </div>
-                    <div class="fc-block">
-                    <p>18:30</p>
-                    </div>
-                    <div class="fc-block">
-                    <p>19:00</p>
-                    </div>
-                </div>
-                <div class="fc-line">
-                    <a href="" class="fc-block fc-unknown" ng-click="vm.onCaseClick(day.date, '18:00')"
-                        ng-class="day.CaseClasses[0]" >
-                    </a>        
-                    <a href="" class="fc-block fc-unknown" ng-click="vm.onCaseClick(day.date, '18:30')"
-                        ng-class="day.CaseClasses[1]" >
-                    </a>
-                    <a href="" class="fc-block fc-unknown" ng-click="vm.onCaseClick(day.date, '19:00')"
-                        ng-class="day.CaseClasses[2]" >
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+  <div class="col-sm-offset-1 heading-group row">
+    <h3>{{ displayedDate }}</h3>
+    <span class="prev-month glyphicon glyphicon-chevron-left" ng-click="previousMonth()">
+    </span>
+    <span class="next-month glyphicon glyphicon-chevron-right" ng-click="nextMonth()">
+    </span>
+  </div>
 
+  <div class="fc-calendar noselect" ng-repeat="day in calendarData track by $index">
+    <div class="col-sm-2 fc-day" ng-class="[{'col-sm-offset-1' : $index %5 === 0}, day.classes]">
+      <div class="fc-head" ng-class="$index %5 === 0 ? 'fc-first-day' : 'fc-other-day'">
+        <p>{{ day.date.format('ddd') }}. {{ day.date.format('D') }}
+          <p>
+      </div>
+      <div class="fc-body">
+        <div class="fc-line">
+          <div class="fc-block">
+            <p>18:00</p>
+          </div>
+          <div class="fc-block">
+            <p>18:30</p>
+          </div>
+          <div class="fc-block">
+            <p>19:00</p>
+          </div>
+        </div>
+        <div class="fc-line">
+          <a href="" class="fc-block fc-unknown" ng-click="vm.onCaseClick(day.date, '18:00')" ng-class="day.CaseClasses[0]">
+          </a>
+          <a href="" class="fc-block fc-unknown" ng-click="vm.onCaseClick(day.date, '18:30')" ng-class="day.CaseClasses[1]">
+          </a>
+          <a href="" class="fc-block fc-unknown" ng-click="vm.onCaseClick(day.date, '19:00')" ng-class="day.CaseClasses[2]">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

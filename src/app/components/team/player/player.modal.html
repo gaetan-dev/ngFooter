@@ -1,37 +1,33 @@
 <div class="my-modal modal" id="playerModal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <div class="close-modal" ng-click="close()">
-            <div class="lr">
-                <div class="rl">
-                </div>
-            </div>
+  <div class="modal-content">
+    <div class="close-modal" ng-click="close()">
+      <div class="lr">
+        <div class="rl">
         </div>
-        <div class="container">
-            <div class="modal-body" >
-                <h2>{{player.firstName}} {{player.name}}</h2>
-                <p class="item-intro text-muted">{{player.position}}</p>
-                <div class="player-modal-box">
-                    <img src="assets/images/team/Messi.jpg" class="img-responsive img-circle" alt="">
-                    <div class="player-modal-box-caption">
-                        <canvas class="chart chart-doughnut" data="data_matches" labels="labels_matches" 
-                            legend="true" colours="colours_matches" height="540" width="270" 
-                            options="options_matches"></canvas>
-                    </div>
-                </div>
-                
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-3">
-                            <canvas id="radar" class="chart chart-radar" data="data_charac" labels="labels_charac"
-                                height="540" width="270" options="options_charac"></canvas> 
-                        </div>
-                        <div class="col-lg-3 col-lg-offset-5">
-                           <canvas id="line" class="chart chart-line" data="data_ratio" labels="labels_ratio" 
-                                series="series_ratio" height="250" width="250" options="options_ratio"></canvas> 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+    <div class="container">
+      <div class="modal-body">
+        <h2>{{player.firstName}} {{player.name}}</h2>
+        <p class="item-intro text-muted">{{player.position}}</p>
+        <div class="player-modal-box">
+          <img src="assets/images/team/Messi.jpg" class="img-responsive img-circle" alt="">
+          <div class="player-modal-box-caption">
+            <canvas class="chart chart-doughnut" data="data_matches" labels="labels_matches" legend="true" colours="colours_matches" height="540" width="270" options="options_matches"></canvas>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3">
+              <canvas id="radar" class="chart chart-radar" data="data_charac" labels="labels_charac" height="540" width="270" options="options_charac"></canvas>
+            </div>
+            <div class="col-lg-3 col-lg-offset-5">
+              <canvas id="line" class="chart chart-line" data="data_ratio" labels="labels_ratio" series="series_ratio" height="250" width="250" options="options_ratio"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
