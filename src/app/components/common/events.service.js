@@ -14,7 +14,6 @@
     api.getUserEvents = getUserEvents;
     api.createEvent = createEvent;
     api.updateEvent = updateEvent;
-    api.updateEvents = updateEvents;
     api.removeEvent = removeEvent;
 
     /**
@@ -79,20 +78,6 @@
           Id: id,
           Mode: mode,
         })
-        .then(function (response) {
-          return response.data;
-        });
-    }
-
-    /**
-     * PUT HTTP restfull
-     * Update the events
-     * @method updateEvents
-     * @param events
-     * @return events []
-     */
-    function updateEvents(events) {
-      return $http.put(ENV.api.EVENT_URL, events)
         .then(function (response) {
           return response.data;
         });

@@ -1,11 +1,10 @@
 <div class="calendar" cg-busy="{promise:vm.saveAllPromise,
-	templateUrl:'./app/components/common/loader/google/loader.html',minDuration:700}"
-	ng-init="vm.saveAllPromise = $promise" >
+	templateUrl:'./app/components/common/loader/google/loader.html',minDuration:700}" ng-init="vm.saveAllPromise = $promise">
 	<div>
 		<acme-calendar/>
 	</div>
 	<div>
-		<a href="" class="btn btn-xl" ng-class="{ invisible: !vm.save }" ng-click="vm.onSaveClick()">Sauvegarder</a>
+		<a href="" class="btn btn-l" ng-class="{ invisible: !vm.save }" ng-click="vm.onSaveClick()">Sauvegarder</a>
 	</div>
 	<div class="row legend-content">
 		<div class="legend-body col-xs-2 col-sm-offset-1">
