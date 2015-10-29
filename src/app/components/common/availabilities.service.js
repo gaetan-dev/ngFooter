@@ -109,12 +109,13 @@
      * @param availabilities
      * @return availabilities []
      */
-    function updateAvailabilities(availabilities) {
+    function updateAvailabilities(availabilities, mode) {
       return $http.put(ENV.api.AVAILABILITY_URL, {
-          availabilities: availabilities
+          availabilities: availabilities,
+          mode: mode
         })
         .then(function (response) {
-          return response.data;
+          return response;
         });
     }
 

@@ -6,7 +6,8 @@
     .controller('OrganizeModalController', OrganizeModalController);
 
   /** @ngInject */
-  function OrganizeModalController($rootScope, $q, myModalService, toolsService, calendarService, close, availabilities, events) {
+  function OrganizeModalController($rootScope, $q, myModalService,
+    calendarService, close, availabilities, events) {
     var vm = this;
 
     /* Open */

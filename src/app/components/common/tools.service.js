@@ -14,6 +14,8 @@
     api.findUserIndex = findUserIndex;
     api.uppercaseFirst = uppercaseFirst;
     api.lowercaseAll = lowercaseAll;
+    api.removeSubArray = removeSubArray;
+    api.findAvailabilityIndex = findUserIndex;
 
     /**
      * Find the index in the array through callback
@@ -69,6 +71,31 @@
       if (str !== null) {
         return str.toLowerCase();
       }
+    }
+
+    function removeSubArray(array, subArray) {
+      for (var i = 0; i < subArray.length; i++) {
+        var index = findAvailabilityIndex(array, subArray[i]);
+        if (index > -1) {
+          array.splice(index, 1);
+        }
+      }
+    }
+
+    /**
+     * Find the index of availability in the array
+     * @method findAvailabilityIndex
+     * @param array
+     * @param availability
+     * @return indice
+     */
+    function findAvailabilityIndex(array, availability) {
+      for (var i = 0; i < array.length; i++) {
+        if (array[i].id === availability.id) {
+          return i;
+        }
+      }
+      return -1;
     }
 
     return api;

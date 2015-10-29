@@ -9,8 +9,6 @@
     var $httpBackend;
     var controller;
 
-    /* Methodes Mock*/
-
 
     /* Before Each */
     beforeEach(module('footer', function () {
@@ -29,9 +27,6 @@
       element = $compile(element)(scope);
       scope.$digest();
       controller = scope.$$childTail.vm;
-
-      /* Init Methodes Mock*/
-
     }));
 
 

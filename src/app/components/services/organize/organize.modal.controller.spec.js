@@ -5,16 +5,25 @@
   describe('Controller: OrganizeModalController', function () {
 
     /* Variables */
-    var calendarServiceMock;
     var controller;
 
-    /* Methodes Mock*/
+    /* Variables Mock */
+    var calendarServiceMock;
+
 
     /* Before Each */
     beforeEach(module('footer'));
 
     beforeEach(inject(function ($controller) {
       /* Init Variable */
+      controller = $controller('OrganizeModalController', {
+        calendarService: calendarServiceMock,
+        close: {},
+        availabilities: [],
+        events: []
+      });
+
+      /* Init Variable Mock */
       calendarServiceMock = {
         fetchAvailabilities: function () {
           return [{
@@ -37,19 +46,9 @@
             user: {
               id: 3
             }
-          }, ];
+          }];
         }
-
-        /* Init Methodes Mock*/
-
       };
-
-      controller = $controller('OrganizeModalController', {
-        calendarService: calendarServiceMock,
-        close: {},
-        availabilities: [],
-        events: [],
-      });
     }));
 
 
