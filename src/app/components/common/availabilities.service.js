@@ -40,7 +40,7 @@
      * @return availabilities []
      */
     function getUserAvailabilities(userId) {
-      return $http.get(ENV.api.AVAILABILITY_URL + '?user_id=' + userId)
+      return $http.get(ENV.api.AVAILABILITY_URL + '?userId=' + userId)
         .then(function (response) {
           return response.data;
         });
@@ -73,11 +73,9 @@
      * @return availabilities []
      */
     function createAvailabilities(availabilities) {
-      for (var i = 0; i < availabilities.length; i++) {
-        availabilities[i].user = $rootScope.user.id;
-      }
       return $http.post(ENV.api.AVAILABILITY_URL, {
-          availabilities: availabilities
+          availabilities: availabilities,
+          userId: $rootScope.user.id
         })
         .then(function (response) {
           return response.data;
@@ -94,8 +92,8 @@
      */
     function updateAvailability(id, mode) {
       return $http.put(ENV.api.AVAILABILITY_URL, {
-          Id: id,
-          Mode: mode,
+          id: id,
+          mode: mode,
         })
         .then(function (response) {
           return response.data;
@@ -112,7 +110,8 @@
     function updateAvailabilities(availabilities, mode) {
       return $http.put(ENV.api.AVAILABILITY_URL, {
           availabilities: availabilities,
-          mode: mode
+          mode: mode,
+          userId: $rootScope.user.id
         })
         .then(function (response) {
           return response;

@@ -18,7 +18,8 @@
     return directive;
 
     /** @ngInject */
-    function OrganizeOrganizeBoxController($rootScope, $scope, organizeModalService, toolsService, eventsService) {
+    function OrganizeOrganizeBoxController($rootScope, $scope,
+      organizeModalService, toolsService, eventsService) {
       var vm = this;
 
       /* Variables */
@@ -141,6 +142,7 @@
        * @param user
        */
       function search(user) {
+        console.log(user);
         return user.lastName.match(toolsService.lowercaseAll(vm.query)) !== null ||
           user.firstName.match(toolsService.lowercaseAll(vm.query)) !== null;
       }

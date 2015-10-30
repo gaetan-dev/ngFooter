@@ -45,19 +45,19 @@
           availabilities: (availabilities || [])
             .filter(function (availability) {
               return moment(availability.date).isSame(currentDate, 'day');
-            })
-            .map(function (availability) {
-              availability.label = availability.mode;
-              return availability;
             }),
+            // .map(function (availability) {
+            //   availability.label = availability.mode;
+            //   return availability;
+            // }),
           events: (events || [])
             .filter(function (event) {
               return moment(event.date).isSame(currentDate, 'day');
             })
-            .map(function (event) {
-              event.label = event.mode;
-              return event;
-            })
+            // .map(function (event) {
+            //   event.label = event.mode;
+            //   return event;
+            // })
         };
 
         dayData.classes = computeDayClasses(currentDate);
