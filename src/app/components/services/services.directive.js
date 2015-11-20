@@ -19,8 +19,11 @@
     return directive;
 
     /** @ngInject */
-    function ServicesController(availabilitiesModalService, organizeModalService, matchesModalService) {
+    function ServicesController($timeout, availabilitiesModalService, organizeModalService, matchesModalService) {
       var vm = this;
+
+      /* Variables */
+      var buttonClicked = false;
 
       /* Methodes */
       vm.clickOnAvailabilities = clickOnAvailabilities;
@@ -33,7 +36,10 @@
        * @method clickOnAvailabilities
        */
       function clickOnAvailabilities() {
-        availabilitiesModalService.showAvailabilities();
+        if (!buttonClicked) {
+          clickOnService();
+          availabilitiesModalService.showAvailabilities();
+        }
       }
 
       /**
@@ -42,7 +48,10 @@
        * @method clickOnOrganize
        */
       function clickOnOrganize() {
-        organizeModalService.showOrganize();
+        if (!buttonClicked) {
+          clickOnService();
+          organizeModalService.showOrganize();
+        }
       }
 
       /**
@@ -51,7 +60,17 @@
        * @method clickOnMatches
        */
       function clickOnMatches() {
-        matchesModalService.showMatches();
+        if (!buttonClicked) {
+          clickOnService();
+          matchesModalService.showMatches();
+        }
+      }
+
+      function clickOnService() {
+        buttonClicked = true;
+        $timeout(function () {
+          buttonClicked = false;
+        }, 1000);
       }
     }
   }
