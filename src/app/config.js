@@ -1,12 +1,12 @@
 angular.module("config", [])
 
 .constant("ENV", {
-	"name": "prod",
+	"name": "dev",
 	"api": {
-		"URL": "http://dvafavmodweb32:91/",
-		"USER_URL": "http://dvafavmodweb32:91/user/",
-		"AVAILABILITY_URL": "http://dvafavmodweb32:91/availability/",
-		"EVENT_URL": "http://dvafavmodweb32:91/event/"
+		"URL": "http://uc431000vw7net:1337/",
+		"USER_URL": "http://uc431000vw7net:1337/user/",
+		"AVAILABILITY_URL": "http://uc431000vw7net:1337/availability/",
+		"EVENT_URL": "http://uc431000vw7net:1337/event/"
 	}
 })
 

@@ -19,18 +19,32 @@
         controllerAs: 'main',
         resolve: {
           identity: function (authorizationFactory) {
-            return authorizationFactory.authorize();
+            return authorizationFactory.authorize('home');
           }
         },
         data: {
           roles: []
         }
       })
+      .state('admin', {
+          url: '/admin',
+          templateUrl: 'app/admin/admin.html',
+          controller: 'AdminController',
+          controllerAs: 'admin',
+          resolve: {
+            identity: function (authorizationFactory) {
+              return authorizationFactory.authorize('admin');
+            },
+            users: function (userService) {
+              return userService.getAllUsers();
+            }
+          },
+          data: {
+            roles: ['Admin']
+          }
+      })
       .state('accessdenied', {
-        url: '/accessdenied',
-        data: {
-          roles: []
-        }
+        url: '/accessdenied'
       });
 
     $urlRouterProvider.otherwise('/');

@@ -16,7 +16,7 @@
      * @method authorize
      * @return promise {}
      */
-    function authorize() {
+    function authorize(state) {
       return identityFactory.identity()
         .then(function (identity) {
           var isAuthenticated = identityFactory.isAuthenticated();
@@ -31,7 +31,7 @@
               $rootScope.returnToStateParams = $rootScope.toStateParams;
 
               // now, send them to the signin state so they can log in
-              $state.go('home');
+              $state.go(state);
             }
           }
           return identity;

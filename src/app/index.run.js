@@ -6,7 +6,7 @@
     .run(runBlock);
 
   /** @ngInject */
-  function runBlock($log, $rootScope, identityFactory, authorizationFactory) {
+  function runBlock($log, $rootScope, identityFactory) {
     $rootScope.$on('$stateChangeStart', function (event, toState, toStateParams) {
       // track the state the user wants to go to; authorization service needs this
       $rootScope.toState = toState;
@@ -14,7 +14,7 @@
       // if the principal is resolved, do an authorization check immediately. otherwise,
       // it'll be done when the state it resolved.
       if (identityFactory.isIdentityResolved()) {
-        authorizationFactory.authorize();
+        // authorizationFactory.authorize('home');
       }
     });
 

@@ -1,0 +1,21 @@
+<h3>Admin Page</h3>
+<input type="text" class="center-block" placeholder="Nouveau mot de passe" ng-model="admin.newPassword">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Prénom</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody ng-repeat="user in admin.users">
+    <tr>
+      <th>{{ user.lastName }}</th>
+      <th>{{ user.firstName }}</th>
+      <th>{{ user.email }}</th>
+      <th>
+        <button type="button" name="password" ng-click="admin.clickOnResetPassword(user)">Réinitialiser le mot de passe</button>
+      </th>
+    </tr>
+  </tbody>
+</table>
